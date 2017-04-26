@@ -1,0 +1,18 @@
+{
+    "name": "",
+    "type": "library",
+    "description": "",
+    "keywords": [],
+    "homepage": "",
+    "license": "",
+    "authors": [
+
+    ],
+    "autoload": {
+        "files": ["autoload.php"]
+    },
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "^6.2"
+    }
+}
