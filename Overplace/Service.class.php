@@ -106,7 +106,7 @@ class Service
 
 		$class = (isset($expectedClass) && is_string($expectedClass) && !empty($expectedClass)) ? $expectedClass : substr(static::class, (strrpos(static::class, "\\") + 1), strlen(static::class));
 		if (!class_exists("\\Overplace\\Response\\{$class}")){
-			throw new \Overplace\Exception\Service("a");
+			throw new \Overplace\Exception\Service("Invalid or missing {$class} class in response namespace!");
 		}
 
 		$reflectionClass = new \ReflectionClass("\\Overplace\\Response\\{$class}");
