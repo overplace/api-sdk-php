@@ -1,17 +1,19 @@
 <?php
 
-namespace Overplace\Request;
+namespace Overplace\Request\News;
 
 /**
- * Class NewsList.
+ * Class Lists.
+ * Request object for get list of news.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        NewsList
- * @namespace   Overplace\Request
+ * @name        Lists
+ * @namespace   Overplace\Request\News
  * @package     Overplace
+ * @uses        \Overplace\Request\Lists
  *
- * Date:        19/04/2017
+ * Date:        27/04/2017
  */
-class NewsList extends \Overplace\Request
+class Lists extends \Overplace\Request\Lists
 {
 
 	const SORT_BY_DATA = 20;
@@ -47,7 +49,7 @@ class NewsList extends \Overplace\Request
 	public $limit;
 
 	/**
-	 * NewsList constructor.
+	 * Lists constructor.
 	 * @access  public
 	 */
 	public function __construct ()
@@ -60,7 +62,7 @@ class NewsList extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\NewsList
+	 * @return  \Overplace\Request\News\Lists
 	 */
 	public function setIdScheda ($idScheda)
 	{
@@ -74,7 +76,7 @@ class NewsList extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $page
 	 *
-	 * @return  \Overplace\Request\NewsList
+	 * @return  \Overplace\Request\News\Lists
 	 */
 	public function setPage ($page)
 	{
@@ -88,7 +90,7 @@ class NewsList extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $limit
 	 *
-	 * @return  \Overplace\Request\NewsList
+	 * @return  \Overplace\Request\News\Lists
 	 */
 	public function setLimit ($limit)
 	{

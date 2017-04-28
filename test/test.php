@@ -1,32 +1,36 @@
 <?php
-require_once 'vendor/autoload.php';
-require_once 'autoload.php';
+require_once '../vendor/autoload.php';
+require_once '../autoload.php';
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 header("Content-type: text/plain; charset=utf-8");
-
 
 
 try {
 	$client = new \Overplace\Client([
 		'app' => [
 			'client_id' => 'testclientid',
-			'client_secret' => 'testclientsecret'
+			'client_secret' => 'testclientsecreta'
 		]
 	]);
-	$serviceWmc = new \Overplace\Service\Wmc($client);
-	print_r($serviceWmc->getList());
+	print_r($client);
 	exit();
-	//$wmcGetRequest = (new \Overplace\Request\WmcGet())->setIdScheda(8535);
-	//$wmc = $serviceWmc->get($wmcGetRequest);
 	$serviceNews = new Overplace\Service\News($client);
-	$newsListRequest = (new \Overplace\Request\NewsList())->setIdScheda(8535)->setPage(1)->setLimit(10);
-	$newsListRequest->addSortBy(\Overplace\Request\NewsList::SORT_BY_ID);
-	$newsListRequest->addFilterAnd(\Overplace\Request\NewsList::FILTER_BY_STATE, \Overplace\Request::EQUAL_TO, "1");
+	$newsGet = new \Overplace\Request\News\Get();
+	$newsGet->setIdScheda(8535)->setIdNews(19805);
+
+	$news = $serviceNews->get($newsGet);
+	print_r($news);
+	exit();
+
+	$newsListRequest = (new \Overplace\Request\News\Lists())->setIdScheda(8535)->setPage(1)->setLimit(10);
+	$newsListRequest->addSortBy($newsListRequest::SORT_BY_ID);
+	$newsListRequest->addFilterAnd($newsListRequest::FILTER_BY_STATE, $newsListRequest::EQUAL_TO, "1");
 	$newsList = $serviceNews->getList($newsListRequest);
 
 	foreach ($newsList as $news){
-		echo $news->id." - ".$news->titolo.PHP_EOL;
+		print_r($news);
+		exit();
 	}
 
 	if ($newsList->hasPaginator()){
@@ -61,7 +65,7 @@ try {
 
 
 }catch (\Overplace\Exception\Service $e){
-	echo $e->getMessage();
+	print_r($e);
 }
 
 ?>

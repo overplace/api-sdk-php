@@ -8,6 +8,7 @@ namespace Overplace\Response;
  * @name        Indirizzo
  * @namespace   Overplace\Response
  * @package     Overplace
+ * @uses        \Overplace\Response
  *
  * Date:        20/04/2017
  */

@@ -3,16 +3,16 @@
 namespace Overplace\Exception;
 
 /**
- * Class Sdk.
+ * Class Service.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Service
- * @namespace   Overplace
+ * @namespace   Overplace\Exception
  * @package     Overplace
- * @uses        \Exception
+ * @uses        \Overplace\Exception\Sdk
  *
  * Date:        19/04/2017
  */
-class Service extends \Exception
+class Service extends \Overplace\Exception\Sdk
 {
 
 	/**

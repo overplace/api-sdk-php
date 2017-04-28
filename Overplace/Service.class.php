@@ -37,6 +37,13 @@ class Service
 	protected $validator;
 
 	/**
+	 * Array endpoint of service.
+	 * @access  protected
+	 * @var     array
+	 */
+	protected $endpoint;
+
+	/**
 	 * Request constructor.
 	 * @access  public
 	 * @param   \Overplace\Client   $client     Client
@@ -50,7 +57,7 @@ class Service
 			'verify' => false,
 			'http_errors' => false,
 			'headers' => array(
-				'user-agent' => $this->client->getApp()->getClientId() . " " . \Overplace\Client::USER_AGENT . \Overplace\Client::CLIENT_VERSION
+				'user-agent' => \Overplace\Client::USER_AGENT . \Overplace\Client::CLIENT_VERSION
 			)
 		]);
 	}
@@ -66,20 +73,17 @@ class Service
 	 * @param   string      $uri            Endpoint beginning without slash
 	 * @param   array       $params         Array params to send with request. [Optional]
 	 * @param   array       $headers        Array with additional headers. [Optional]
-	 * @param   string|null $expectedClass  Class name of expected class. Di default is null. [Optional]
+	 * @param   string|null $expectedClass  Class name of expected class. Default is null. [Optional]
 	 *
 	 * @return  \Overplace\Collection|mixed
 	 */
 	protected function request ($method, $uri, array $params = array(), array $headers = array(), $expectedClass = null)
 	{
-		//exit($this->client->getBaseUri() . $uri . http_build_query($params, null, "&", PHP_QUERY_RFC1738));
 		$auth = $this->client->getAuth();
 		if ($method == 'GET'){
-			$httpAuthentication = $auth->getHttpHeader($auth->hash($method, http_build_query($params, null, "&", PHP_QUERY_RFC1738)));
-
 			$options = array(
 				'headers' => array_merge($headers, array(
-						"Authentication" => $httpAuthentication
+						"Authentication" => $auth->getHttpHeader($auth->hash($method, http_build_query($params, null, "&", PHP_QUERY_RFC1738)))
 					)
 				),
 				'query' => $params
@@ -102,7 +106,7 @@ class Service
 
 		$class = (isset($expectedClass) && is_string($expectedClass) && !empty($expectedClass)) ? $expectedClass : substr(static::class, (strrpos(static::class, "\\") + 1), strlen(static::class));
 		if (!class_exists("\\Overplace\\Response\\{$class}")){
-			throw new \Overplace\Exception\Service("aaaaa");
+			throw new \Overplace\Exception\Service("a");
 		}
 
 		$reflectionClass = new \ReflectionClass("\\Overplace\\Response\\{$class}");

@@ -8,6 +8,7 @@ namespace Overplace\Auth;
  * @name        Hmac
  * @namespace   Overplace\Auth
  * @package     Overplace
+ * @see         \Overplace\Interfaces\Auth
  *
  * Date:        19/04/2017
  */
@@ -15,25 +16,20 @@ class Hmac implements \Overplace\Interfaces\Auth
 {
 
 	/**
-	 * Client.
+	 * App Client.
 	 * @access  protected
-	 * @var     \Overplace\Client
+	 * @var     \Overplace\App
 	 */
-	protected $client;
+	protected $app;
 
 	/**
 	 * Auth constructor.
 	 * @access  public
-	 * @param   \Overplace\Client $client
+	 * @param   \Overplace\App $app
 	 */
-	public function __construct (\Overplace\Client $client)
+	public function __construct (\Overplace\App $app)
 	{
-		$this->client = $client;
-	}
-
-	public function __invoke (\Psr\Http\Message\RequestInterface $request, array $options)
-	{
-		return $request->withHeader("Authentication", $this->getHttpHeader($this->hash($request->getMethod(), (string) $request->getBody())));
+		$this->app = $app;
 	}
 
 	/**
@@ -49,10 +45,10 @@ class Hmac implements \Overplace\Interfaces\Auth
 	public function hash ($method, $body = '')
 	{
 		if (!is_string($method) || empty($method) || !is_string($body)){
-			throw new \Overplace\Exception\Auth("");
+			throw new \Overplace\Exception\Auth("Invalid parameters passed to hash method!");
 		}
 
-		return substr(hash_hmac("sha512", "{$method} {$body}", $this->client->getApp()->getClientSecret(), false), 0, 80);
+		return substr(hash_hmac("sha512", "{$method} {$body}", $this->app->getClientSecret(), false), 0, 80);
 	}
 
 	/**
@@ -66,10 +62,10 @@ class Hmac implements \Overplace\Interfaces\Auth
 	public function getHttpHeader ($hash)
 	{
 		if (!is_string($hash) || empty($hash)){
-			throw new \Overplace\Exception\Auth("");
+			throw new \Overplace\Exception\Auth("Invalid or empty hash passed to getHttpHeader method!");
 		}
 
-		return "HMAC {$this->client->getApp()->getClientId()}:{$hash}";
+		return "HMAC {$this->app->getClientId()}:{$hash}";
 	}
 
 }

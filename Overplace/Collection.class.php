@@ -19,7 +19,7 @@ class Collection implements \Iterator, \Countable
 	/**
 	 * Array of Response instances.
 	 * @access  protected
-	 * @var     \Overplace\Response[]
+	 * @var     array
 	 */
 	protected $data;
 
@@ -73,10 +73,11 @@ class Collection implements \Iterator, \Countable
 
 	/**
 	 * Return the current element.
+	 * An instance of object that extend \Overplace\Response.
 	 * @access  public
 	 * @link    http://php.net/manual/en/iterator.current.php
 	 *
-	 * @return  \Overplace\Response
+	 * @return  object
 	 */
 	public function current ()
 	{

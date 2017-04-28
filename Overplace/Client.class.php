@@ -8,6 +8,10 @@ namespace Overplace;
  * @name        Client
  * @namespace   Overplace
  * @package     Overplace
+ * @uses        \Overplace\App
+ * @uses        \Overplace\Interfaces\Auth
+ *
+ * Date:        19/04/2017
  */
 class Client
 {
@@ -16,7 +20,7 @@ class Client
 	 * User Agent name of client.
 	 * @var     string
 	 */
-	const USER_AGENT = "overplace-client-sdk-php";
+	const USER_AGENT = "overplace-client-api-sdk-php";
 
 	/**
 	 * Sdk Client Version.
@@ -78,7 +82,7 @@ class Client
 		$this->app = new \Overplace\App($config['app']);
 		$this->graphApiVersion = (isset($config['graph_version']) && !empty($config['graph_version']) && is_string($config['graph_version'])) ? $config['graph_version'] : self::DEFAULT_GRAPH_API_VERSION;
 		$auth = (isset($config['auth']) && class_exists("\\Overplace\\Auth\\" . $config['auth'])) ? "\\Overplace\\Auth\\" . $config['auth'] : \Overplace\Auth\Hmac::class;
-		$this->auth = (new \ReflectionClass($auth))->newInstance($this);
+		$this->auth = new $auth($this->app);
 	}
 
 	/**

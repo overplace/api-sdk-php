@@ -8,6 +8,7 @@ namespace Overplace\Validate;
  * @name        News
  * @namespace   Overplace\Validate
  * @package     Overplace
+ * @uses        \Overplace\Validate
  *
  * Date:        19/04/2017
  */
@@ -17,6 +18,7 @@ class News extends \Overplace\Validate
 	/**
 	 * News constructor.
 	 * @access  public
+	 * @see     \Overplace\Validate::__construct()
 	 */
 	public function __construct ()
 	{
@@ -42,7 +44,7 @@ class News extends \Overplace\Validate
 	 */
 	public function getRequiredForGet ()
 	{
-		return array('idScheda', 'id');
+		return array('idScheda', 'idNews');
 	}
 
 }

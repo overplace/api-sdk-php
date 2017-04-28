@@ -8,6 +8,7 @@ namespace Overplace\Validate;
  * @name        Wmc
  * @namespace   Overplace\Validate
  * @package     Overplace
+ * @uses        \Overplace\Validate
  *
  * Date:        20/04/2017
  */
@@ -17,6 +18,7 @@ class Wmc extends \Overplace\Validate
 	/**
 	 * Wmc constructor.
 	 * @access  public
+	 * @see     \Overplace\Validate::__construct()
 	 */
 	public function __construct ()
 	{
@@ -25,7 +27,9 @@ class Wmc extends \Overplace\Validate
 
 	/**
 	 * Return properties required for get method.
-	 * @return array
+	 * @access  public
+	 *
+	 * @return  array
 	 */
 	public function getRequiredForGet ()
 	{

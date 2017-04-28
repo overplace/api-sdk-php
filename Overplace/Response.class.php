@@ -14,6 +14,11 @@ namespace Overplace;
 class Response
 {
 
+	/**
+	 * Array with mapped relation between Response object.
+	 * @access  protected
+	 * @var     array
+	 */
 	protected $_map;
 
 	/**
@@ -26,13 +31,8 @@ class Response
 		$this->_map = $map;
 	}
 
-	public function __debugInfo ()
-	{
-		return $this->toArray();
-	}
-
 	/**
-	 * Return array with all properties.
+	 * Return array with all properties, excluded _map property.
 	 * @access  public
 	 *
 	 * @return  array
@@ -78,6 +78,13 @@ class Response
 		return $this;
 	}
 
+	/**
+	 * Convert string snake case in camel case.
+	 * @access  private
+	 * @param   string  $string     String to convert.
+	 *
+	 * @return  string
+	 */
 	private function toCamelCase ($string)
 	{
 		if (!is_string($string) || empty($string)){

@@ -17,19 +17,9 @@ interface Auth
 	/**
 	 * Auth constructor.
 	 * @access  public
-	 * @param   \Overplace\Client   $client
+	 * @param   \Overplace\App   $app
 	 */
-	public function __construct (\Overplace\Client $client);
-
-	/**
-	 * Add http authentication to request.
-	 * @access  public
-	 * @param   \Psr\Http\Message\RequestInterface  $request
-	 * @param   array                               $options
-	 *
-	 * @return  \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function __invoke (\Psr\Http\Message\RequestInterface $request, array $options);
+	public function __construct (\Overplace\App $app);
 
 	/**
 	 * Generate hash for authentication request.

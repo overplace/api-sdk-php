@@ -7,6 +7,8 @@ namespace Overplace\Response;
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Categoria
  * @namespace   Overplace\Response
+ * @package     Overplace
+ * @uses        \Overplace\Response
  *
  * Date:        21/04/2017
  */

@@ -5,8 +5,8 @@ namespace Overplace\Exception;
 /**
  * Class Sdk.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Exception
- * @namespace   Overplace
+ * @name        Sdk
+ * @namespace   Overplace\Exception
  * @package     Overplace
  * @uses        \Exception
  *

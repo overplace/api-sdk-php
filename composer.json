@@ -1,15 +1,17 @@
 {
-    "name": "",
+    "name": "Api Sdk Php",
     "type": "library",
     "description": "",
-    "keywords": [],
+    "keywords": ["overplace", "api", "sdk php", "overplace api client php", "overplace api sdk php"],
     "homepage": "",
     "license": "",
     "authors": [
-
+        "Andrea Bellucci <andrea.bellucci@overplace.it>"
     ],
     "autoload": {
-        "files": ["autoload.php"]
+        "files": [
+            "autoload.php"
+        ]
     },
     "require": {
         "php": ">=5.5",

@@ -8,6 +8,7 @@ namespace Overplace\Response;
  * @name        News
  * @namespace   Overplace\Response
  * @package     Overplace
+ * @uses        \Overplace\Response
  *
  * Date:        19/04/2017
  */

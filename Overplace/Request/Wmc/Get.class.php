@@ -1,9 +1,10 @@
 <?php
 
-namespace Overplace\Request;
+namespace Overplace\Request\Wmc;
 
 /**
- * Class WmcGet.
+ * Class Get.
+ * Request object for get single wmc.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        WmcGet
  * @namespace   Overplace\Request
@@ -11,7 +12,7 @@ namespace Overplace\Request;
  *
  * Date:        20/04/2017
  */
-class WmcGet extends \Overplace\Request
+class Get extends \Overplace\Request
 {
 
 	/**
@@ -22,7 +23,7 @@ class WmcGet extends \Overplace\Request
 	public $idScheda;
 
 	/**
-	 * WmcGet constructor.
+	 * Get constructor.
 	 * @access  public
 	 */
 	public function __construct ()
@@ -35,7 +36,7 @@ class WmcGet extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\WmcGet
+	 * @return  \Overplace\Request\Wmc\Get
 	 */
 	public function setIdScheda ($idScheda)
 	{

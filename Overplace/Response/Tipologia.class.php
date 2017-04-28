@@ -8,6 +8,7 @@ namespace Overplace\Response;
  * @name        Tipologia
  * @namespace   Overplace\Response
  * @package     Overplace
+ * @uses        \Overplace\Response
  *
  * Date:        20/04/2017
  */

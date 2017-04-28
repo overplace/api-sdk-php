@@ -8,6 +8,7 @@ namespace Overplace\Exception;
  * @name        Auth
  * @namespace   Overplace\Exception
  * @package     Overplace
+ * @uses        \Overplace\Exception\Sdk
  *
  * Date:        19/04/2017
  */

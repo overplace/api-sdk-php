@@ -37,7 +37,7 @@ class Validate
 	{
 		$method = "getRequiredFor" . ucfirst($method);
 		if (!method_exists($this, $method)){
-			throw new \Overplace\Exception\Service("");
+			throw new \Overplace\Exception\Service("Validate method {$method} doesn't exists!");
 		}
 		$properties = array_keys($object->toArray());
 		return empty(array_diff($this->{$method}(), $properties));

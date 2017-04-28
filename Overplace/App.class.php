@@ -4,7 +4,6 @@ namespace Overplace;
 
 /**
  * Class App.
- *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        App
  * @namespace   Overplace
@@ -48,7 +47,7 @@ class App
 	public function __construct (array $app)
 	{
 		if (empty($app) || !isset($app['client_id'], $app['client_secret']) || empty($app['client_id']) || empty($app['client_secret']) || !is_string($app['client_id']) || !is_string($app['client_secret'])){
-			throw new \Overplace\Exception\Sdk("");
+			throw new \Overplace\Exception\Sdk("Missing or invalid client credentials!");
 		}
 
 		$this->clientId = $app['client_id'];

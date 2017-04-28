@@ -8,6 +8,7 @@ namespace Overplace;
  * @name        Paginator
  * @namespace   Overplace
  * @package     Overplace
+ * @uses        \Overplace\Service
  *
  * Date:        21/04/2017
  */
@@ -109,8 +110,12 @@ class Paginator extends \Overplace\Service
 	}
 
 	/**
-	 * @return mixed|\Overplace\Collection
-	 * @throws \Overplace\Exception\Service
+	 * Get previous page if present, throw Service Exception if
+	 * previous page not isset.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 *
+	 * @return  \Overplace\Collection
 	 */
 	public function getPrevPage ()
 	{
@@ -128,8 +133,12 @@ class Paginator extends \Overplace\Service
 	}
 
 	/**
-	 * @return mixed|\Overplace\Collection
-	 * @throws \Overplace\Exception\Service
+	 * Get the current page, throw Service Exception if current
+	 * page not isset.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 *
+	 * @return  \Overplace\Collection
 	 */
 	public function getCurrentPage ()
 	{
@@ -147,8 +156,12 @@ class Paginator extends \Overplace\Service
 	}
 
 	/**
-	 * @return mixed|\Overplace\Collection
-	 * @throws \Overplace\Exception\Service
+	 * Get the next page, throw Service Exception if next page
+	 * not isset.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 *
+	 * @return  \Overplace\Collection
 	 */
 	public function getNextPage ()
 	{
