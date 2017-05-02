@@ -3,83 +3,91 @@
 namespace Overplace\Response;
 
 /**
- * Class News.
+ * Class Checkin.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        News
+ * @name        Checkin
  * @namespace   Overplace\Response
  * @package     Overplace
  * @uses        \Overplace\Response
  *
- * Date:        19/04/2017
+ * Date:        28/04/2017
  */
-class News extends \Overplace\Response
+class Checkin extends \Overplace\Response
 {
 
 	/**
-	 * News Id.
+	 * Checkin id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * News status.
+	 * Checkin status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * News title.
+	 * Checkin type.
 	 * @access  protected
-	 * @var     string
+	 * @var     \Overplace\Response\Tipologia
 	 */
-	protected $titolo;
+	protected $tipologia;
 
 	/**
-	 * News text body.
+	 * Checkin description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * News Foto.
-	 * @access  protected
-	 * @var     \Overplace\Response\Foto
-	 */
-	protected $foto;
-
-	/**
-	 * Id post facebook.
+	 * Checkin Number of times required to subscribe.
 	 * @access  protected
 	 * @var     int
 	 */
-	protected $idFacebook;
+	protected $checkinNecessari;
 
 	/**
-	 * Id tweet.
+	 * Checkin available.
 	 * @access  protected
 	 * @var     int
 	 */
-	protected $idTweet;
+	protected $premiErogabili;
 
 	/**
-	 * Flag linkedin. True if shared on linkedin, false otherwise.
+	 * Checkin dispense.
+	 * @access  protected
+	 * @var     int
+	 */
+	protected $premiDistribuiti;
+
+	/**
+	 * Checkin flag unlimited. If true available checkin are unlimited (in this case
+	 * $premiErogabili must be ignored), false if are limited.
 	 * @access  protected
 	 * @var     bool
 	 */
-	protected $linkedin;
+	protected $premiIllimitati;
 
 	/**
-	 * News start date publication.
+	 * Checkin start date.
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $dataInizioPubblicazione;
+	protected $dataInizioOfferta;
 
 	/**
-	 * News constructor.
+	 * Checkin end date.
+	 * @access  protected
+	 * @var     string
+	 */
+	protected $dataFineOfferta;
+
+	/**
+	 * Checkin constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -88,7 +96,7 @@ class News extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
-			'foto' => \Overplace\Response\Foto::class
+			'tipologia' => \Overplace\Response\Tipologia::class
 		));
 	}
 
@@ -115,14 +123,14 @@ class News extends \Overplace\Response
 	}
 
 	/**
-	 * Titolo getter.
+	 * Tipologia getter.
 	 * @access  public
 	 *
-	 * @return  string
+	 * @return  \Overplace\Response\Tipologia
 	 */
-	public function getTitolo ()
+	public function getTipologia ()
 	{
-		return $this->titolo;
+		return $this->tipologia;
 	}
 
 	/**
@@ -137,58 +145,69 @@ class News extends \Overplace\Response
 	}
 
 	/**
-	 * Foto getter.
-	 * @access  public
-	 *
-	 * @return  \Overplace\Response\Foto
-	 */
-	public function getFoto ()
-	{
-		return $this->foto;
-	}
-
-	/**
-	 * IdFacebook getter.
+	 * CheckinNecessari getter.
 	 * @access  public
 	 *
 	 * @return  int
 	 */
-	public function getIdFacebook ()
+	public function getCheckinNecessari ()
 	{
-		return $this->idFacebook;
+		return $this->checkinNecessari;
 	}
 
 	/**
-	 * IdTweet getter.
+	 * PremiErogabili getter.
 	 * @access  public
 	 *
 	 * @return  int
 	 */
-	public function getIdTweet ()
+	public function getPremiErogabili ()
 	{
-		return $this->idTweet;
+		return $this->premiErogabili;
 	}
 
 	/**
-	 * Linkedin getter.
+	 * PremiDistribuiti getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getPremiDistribuiti ()
+	{
+		return $this->premiDistribuiti;
+	}
+
+	/**
+	 * PremiIllimitati getter.
 	 * @access  public
 	 *
 	 * @return  bool
 	 */
-	public function isLinkedin ()
+	public function isPremiIllimitati ()
 	{
-		return $this->linkedin;
+		return $this->premiIllimitati;
 	}
 
 	/**
-	 * DataInizioPubblicazione getter.
+	 * DataInizioOfferta getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getDataInizioPubblicazione ()
+	public function getDataInizioOfferta ()
 	{
-		return $this->dataInizioPubblicazione;
+		return $this->dataInizioOfferta;
+	}
+
+	/**
+	 * DataFineOfferta getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getDataFineOfferta ()
+	{
+		return $this->dataFineOfferta;
 	}
 
 }

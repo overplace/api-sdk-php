@@ -17,32 +17,67 @@ class Meta extends \Overplace\Response
 
 	/**
 	 * Meta title.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $titolo;
+	protected $titolo;
 
 	/**
 	 * Meta description.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $descrizione;
+	protected $descrizione;
 
 	/**
 	 * Meta keywords.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $keywords;
+	protected $keywords;
 
 	/**
 	 * Meta constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct();
+		parent::__construct($properties);
+	}
+
+	/**
+	 * Titolo getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTitolo ()
+	{
+		return $this->titolo;
+	}
+
+	/**
+	 * Descrizione getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getDescrizione ()
+	{
+		return $this->descrizione;
+	}
+
+	/**
+	 * Keywords getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getKeywords ()
+	{
+		return $this->keywords;
 	}
 
 }

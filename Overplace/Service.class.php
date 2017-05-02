@@ -114,7 +114,7 @@ class Service
 			$collection = array();
 			$len = count($body['list']);
 			for ($i = 0; $i < $len; $i++){
-				$collection[] = $reflectionClass->newInstance()->assign($body['list'][$i]);
+				$collection[] = $reflectionClass->newInstance($body['list'][$i]);
 			}
 
 			$paginator = null;
@@ -125,7 +125,7 @@ class Service
 			return new \Overplace\Collection($collection, $paginator);
 		}
 
-		return $reflectionClass->newInstance()->assign($body['content']);
+		return $reflectionClass->newInstance($body['content']);
 	}
 
 }

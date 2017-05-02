@@ -17,47 +17,104 @@ class Riferimenti extends \Overplace\Response
 
 	/**
 	 * Phone number.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $telefono;
+	protected $telefono;
 
 	/**
 	 * Mobilephone number.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $cellulare;
+	protected $cellulare;
 
 	/**
 	 * Link Overplace contact page.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $email;
+	protected $email;
 
 	/**
 	 * Fax number
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $fax;
+	protected $fax;
 
 	/**
 	 * Links of website and social page.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("website" => "http://www.example.com", "facebook" => "https://www.facebook.com/" ...)
 	 */
-	public $links;
+	protected $links;
 
 	/**
 	 * Riferimenti constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct();
+		parent::__construct($properties);
+	}
+
+	/**
+	 * Telefono getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTelefono ()
+	{
+		return $this->telefono;
+	}
+
+	/**
+	 * Cellulare getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getCellulare ()
+	{
+		return $this->cellulare;
+	}
+
+	/**
+	 * Email getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getEmail ()
+	{
+		return $this->email;
+	}
+
+	/**
+	 * Fax getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getFax ()
+	{
+		return $this->fax;
+	}
+
+	/**
+	 * Links getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getLinks ()
+	{
+		return $this->links;
 	}
 
 }

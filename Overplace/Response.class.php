@@ -24,11 +24,15 @@ class Response
 	/**
 	 * Response constructor.
 	 * @access  public
-	 * @param   array   $map    Array $property => $classname
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
+	 * @param   array   $map        Array $property => $classname. Default is empty array. [Optional]
 	 */
-	public function __construct (array $map = array())
+	public function __construct (array $properties = array(), array $map = array())
 	{
 		$this->_map = $map;
+		if (!empty($properties)){
+			$this->assign($properties);
+		}
 	}
 
 	/**
@@ -47,12 +51,10 @@ class Response
 	/**
 	 * Assign properties from array.
 	 * Return instance of object.
-	 * @access  public
+	 * @access  protected
 	 * @param   array   $properties     Array with property => value
-	 *
-	 * @return  object
 	 */
-	public function assign (array $properties)
+	protected function assign (array $properties)
 	{
 		foreach ($properties as $key => $value){
 			$property = $this->toCamelCase($key);
@@ -63,19 +65,17 @@ class Response
 						$collection = array();
 						$len = count($value);
 						for ($i = 0; $i < $len; $i++){
-							$collection[] = $class->newInstance()->assign($value[$i]);
+							$collection[] = $class->newInstance($value[$i]);
 						}
 						$this->{$property} = new \Overplace\Collection($collection);
 					}else {
-						$this->{$property} = $class->newInstance()->assign($value);
+						$this->{$property} = $class->newInstance($value);
 					}
 				}else {
 					$this->{$property} = $value;
 				}
 			}
 		}
-
-		return $this;
 	}
 
 	/**

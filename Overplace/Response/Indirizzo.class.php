@@ -17,75 +17,176 @@ class Indirizzo extends \Overplace\Response
 
 	/**
 	 * Address Id.
-	 * @access  public
+	 * @access  protected
 	 * @var     int
 	 */
-	public $id;
+	protected $id;
 
 	/**
 	 * Region name.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $regione;
+	protected $regione;
 
 	/**
 	 * Province name.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $provincia;
+	protected $provincia;
 
 	/**
 	 * Municipality name.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $comune;
+	protected $comune;
 
 	/**
 	 * CAP name.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $cap;
+	protected $cap;
 
 	/**
 	 * Address.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $indirizzo;
+	protected $indirizzo;
 
 	/**
 	 * Latitude.
-	 * @access  public
+	 * @access  protected
 	 * @var     float
 	 */
-	public $latitudine;
+	protected $latitudine;
 
 	/**
 	 * Longitude.
-	 * @access  public
+	 * @access  protected
 	 * @var     float
 	 */
-	public $longitudine;
+	protected $longitudine;
 
 	/**
 	 * Street View info.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("latitudine" => 0.000000, "longitudine" => 0.000000, "heading" => 0.000000, "pitch" => 0.000000, "zoom" => 0.000000)
 	 */
-	public $streetview;
+	protected $streetview;
 
 	/**
 	 * Indirizzo constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct();
+		parent::__construct($properties);
+	}
+
+	/**
+	 * Id getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getId ()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Regione getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getRegione ()
+	{
+		return $this->regione;
+	}
+
+	/**
+	 * Provincia getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getProvincia ()
+	{
+		return $this->provincia;
+	}
+
+	/**
+	 * Comune getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getComune ()
+	{
+		return $this->comune;
+	}
+
+	/**
+	 * Cap getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getCap ()
+	{
+		return $this->cap;
+	}
+
+	/**
+	 * Indirizzo getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getIndirizzo ()
+	{
+		return $this->indirizzo;
+	}
+
+	/**
+	 * Latitudine getter.
+	 * @access  public
+	 *
+	 * @return  float
+	 */
+	public function getLatitudine ()
+	{
+		return $this->latitudine;
+	}
+
+	/**
+	 * Longitudine getter.
+	 * @access  public
+	 *
+	 * @return  float
+	 */
+	public function getLongitudine ()
+	{
+		return $this->longitudine;
+	}
+
+	/**
+	 * Streetview getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getStreetview ()
+	{
+		return $this->streetview;
 	}
 
 }

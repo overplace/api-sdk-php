@@ -17,92 +17,92 @@ class Wmc extends \Overplace\Response
 
 	/**
 	 * Wmc id.
-	 * @access  public
+	 * @access  protected
 	 * @var     int
 	 */
-	public $id;
+	protected $id;
 
 	/**
 	 * Wmc typology.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
-	public $tipologia;
+	protected $tipologia;
 
 	/**
 	 * Wmc status.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
-	public $stato;
+	protected $stato;
 
 	/**
 	 * Wmc address.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Indirizzo
 	 */
-	public $indirizzo;
+	protected $indirizzo;
 
 	/**
 	 * Wmc title.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $titolo;
+	protected $titolo;
 
 	/**
 	 * Wmc description.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $descrizione;
+	protected $descrizione;
 
 	/**
 	 * Wmc Url Foto Profile.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $fotoProfilo;
+	protected $fotoProfilo;
 
 	/**
 	 * Wmc Url Foto Copertina.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $fotoCopertina;
+	protected $fotoCopertina;
 
 	/**
 	 * Wmc categories. A collection of \Overplace\Response\Categoria
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Collection
 	 */
-	public $categorie;
+	protected $categorie;
 
 	/**
 	 * Wmc references.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Riferimenti
 	 */
-	public $riferimenti;
+	protected $riferimenti;
 
 	/**
 	 * Wmc url youtube video.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $videoYoutube;
+	protected $videoYoutube;
 
 	/**
 	 * Wmc url Google Maps Virtual Tour for src iframe.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 * @example <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
 	 */
-	public $virtualTour;
+	protected $virtualTour;
 
 	/**
 	 * Wmc openhours.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example
 	 *  array(
@@ -117,89 +117,333 @@ class Wmc extends \Overplace\Response
 	 *      ...
 	 *  )
 	 */
-	public $orari;
+	protected $orari;
 
 	/**
 	 * Wmc payments accepted.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("American express", "Bancomat"...)
 	 */
-	public $pagamento;
+	protected $pagamento;
 
 	/**
 	 * Wmc services.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("Wifi", "Aria condizionata"...)
 	 */
-	public $servizi;
+	protected $servizi;
 
 	/**
 	 * Wmc services customized.
-	 * @access  public
+	 * @access  protected
 	 * @var     array("Piscina", "Frigobar"...)
 	 */
-	public $serviziCustom;
+	protected $serviziCustom;
 
 	/**
 	 * Wmc services marchi.
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("keywords" => array("Social"...), "marchi" => array("Web Agency"...))
 	 */
-	public $serviziMarchi;
+	protected $serviziMarchi;
 
 	/**
 	 * Wmc url.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $url;
+	protected $url;
 
 	/**
 	 * Wmc qrcode.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $codice;
+	protected $codice;
 
 	/**
 	 * Meta info.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Meta
 	 */
-	public $meta;
+	protected $meta;
 
 	/**
 	 * Wmc wifi. True if have wifi, false otherwise.
-	 * @access  public
+	 * @access  protected
 	 * @var     bool
 	 */
-	public $wifi;
+	protected $wifi;
 
 	/**
 	 * Wmc rating
-	 * @access  public
+	 * @access  protected
 	 * @var     array
 	 * @example array("value" => 4, "count" => 150)
 	 */
-	public $rating;
+	protected $rating;
 
 	/**
 	 * Wmc constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct([
+		parent::__construct($properties, array(
 			'tipologia' => \Overplace\Response\Tipologia::class,
 			'stato' => \Overplace\Response\Tipologia::class,
 			'indirizzo' => \Overplace\Response\Indirizzo::class,
 			'categorie' => \Overplace\Response\Categoria::class,
 			'riferimenti' => \Overplace\Response\Riferimenti::class,
 			'meta' => \Overplace\Response\Meta::class
-		]);
+		));
+	}
+
+	/**
+	 * Id getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getId ()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Tipologia getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Tipologia
+	 */
+	public function getTipologia ()
+	{
+		return $this->tipologia;
+	}
+
+	/**
+	 * Stato getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Tipologia
+	 */
+	public function getStato ()
+	{
+		return $this->stato;
+	}
+
+	/**
+	 * Indirizzo getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Indirizzo
+	 */
+	public function getIndirizzo ()
+	{
+		return $this->indirizzo;
+	}
+
+	/**
+	 * Titolo getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTitolo ()
+	{
+		return $this->titolo;
+	}
+
+	/**
+	 * Descrizione getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getDescrizione ()
+	{
+		return $this->descrizione;
+	}
+
+	/**
+	 * FotoProfilo getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getFotoProfilo ()
+	{
+		return $this->fotoProfilo;
+	}
+
+	/**
+	 * FotoCopertina getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getFotoCopertina ()
+	{
+		return $this->fotoCopertina;
+	}
+
+	/**
+	 * Categorie getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Collection
+	 */
+	public function getCategorie ()
+	{
+		return $this->categorie;
+	}
+
+	/**
+	 * Riferimenti getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Riferimenti
+	 */
+	public function getRiferimenti ()
+	{
+		return $this->riferimenti;
+	}
+
+	/**
+	 * VideoYoutube getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getVideoYoutube ()
+	{
+		return $this->videoYoutube;
+	}
+
+	/**
+	 * VirtualTour getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getVirtualTour ()
+	{
+		return $this->virtualTour;
+	}
+
+	/**
+	 * Orari getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getOrari ()
+	{
+		return $this->orari;
+	}
+
+	/**
+	 * Pagamento getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getPagamento ()
+	{
+		return $this->pagamento;
+	}
+
+	/**
+	 * Servizi getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getServizi ()
+	{
+		return $this->servizi;
+	}
+
+	/**
+	 * ServiziCustom getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getServiziCustom ()
+	{
+		return $this->serviziCustom;
+	}
+
+	/**
+	 * ServiziMarchi getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getServiziMarchi ()
+	{
+		return $this->serviziMarchi;
+	}
+
+	/**
+	 * Url getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getUrl ()
+	{
+		return $this->url;
+	}
+
+	/**
+	 * Codice getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getCodice ()
+	{
+		return $this->codice;
+	}
+
+	/**
+	 * Meta getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Meta
+	 */
+	public function getMeta ()
+	{
+		return $this->meta;
+	}
+
+	/**
+	 * Wifi getter.
+	 * @access  public
+	 *
+	 * @return  bool
+	 */
+	public function isWifi ()
+	{
+		return $this->wifi;
+	}
+
+	/**
+	 * Rating getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRating ()
+	{
+		return $this->rating;
 	}
 
 }

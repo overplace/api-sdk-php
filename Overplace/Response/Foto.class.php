@@ -17,56 +17,123 @@ class Foto extends \Overplace\Response
 
 	/**
 	 * Foto Id.
-	 * @access  public
+	 * @access  protected
 	 * @var     int
 	 */
-	public $id;
+	protected $id;
 
 	/**
 	 * Tipologia Foto.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
-	public $tipologia;
+	protected $tipologia;
 
 	/**
 	 * Foto status.
-	 * @access  public
+	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
-	public $stato;
+	protected $stato;
 
 	/**
 	 * Foto title.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $titolo;
+	protected $titolo;
 
 	/**
 	 * Foto alt.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $alt;
+	protected $alt;
 
 	/**
 	 * Foto url.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $url;
+	protected $url;
 
 	/**
 	 * Foto constructor.
 	 * @access  public
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct([
+		parent::__construct($properties, array(
 			'tipologia' => \Overplace\Response\Tipologia::class,
 			'stato' => \Overplace\Response\Tipologia::class
-		]);
+		));
+	}
+
+	/**
+	 * Id getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getId ()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Tipologia getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Tipologia
+	 */
+	public function getTipologia ()
+	{
+		return $this->tipologia;
+	}
+
+	/**
+	 * Stato getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Tipologia
+	 */
+	public function getStato ()
+	{
+		return $this->stato;
+	}
+
+	/**
+	 * Titolo getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTitolo ()
+	{
+		return $this->titolo;
+	}
+
+	/**
+	 * Alt getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getAlt ()
+	{
+		return $this->alt;
+	}
+
+	/**
+	 * Url getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getUrl ()
+	{
+		return $this->url;
 	}
 
 }

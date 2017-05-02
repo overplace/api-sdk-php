@@ -157,6 +157,23 @@ class Lists extends \Overplace\Request
 	protected $b;
 
 	/**
+	 * Number of page.
+	 * Default: 1
+	 * @access  public
+	 * @var     int
+	 */
+	public $page;
+
+	/**
+	 * Number of rows to get in single call.
+	 * Max number 50.
+	 * Default: 6
+	 * @access  public
+	 * @var     int
+	 */
+	public $limit;
+
+	/**
 	 * Lists constructor.
 	 * @access  public
 	 * @see     \Overplace\Request::__construct()
@@ -170,6 +187,34 @@ class Lists extends \Overplace\Request
 		$this->i = array();
 		$this->ni = array();
 		$this->b = array();
+	}
+
+	/**
+	 * Offset setter.
+	 * @access  public
+	 * @param   int     $page
+	 *
+	 * @return  mixed
+	 */
+	public function setPage ($page)
+	{
+		$this->page = $page;
+
+		return $this;
+	}
+
+	/**
+	 * Limit setter.
+	 * @access  public
+	 * @param   int     $limit
+	 *
+	 * @return  mixed
+	 */
+	public function setLimit ($limit)
+	{
+		$this->limit = $limit;
+
+		return $this;
 	}
 
 	/**

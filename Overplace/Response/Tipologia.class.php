@@ -17,25 +17,49 @@ class Tipologia extends \Overplace\Response
 
 	/**
 	 * Id Tipologia.
-	 * @access  public
+	 * @access  protected
 	 * @var     int
 	 */
-	public $id;
+	protected $id;
 
 	/**
 	 * Tipologia description.
-	 * @access  public
+	 * @access  protected
 	 * @var     string
 	 */
-	public $descrizione;
+	protected $descrizione;
 
 	/**
 	 * Tipologia constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
+	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
-	public function __construct ()
+	public function __construct (array $properties = array())
 	{
-		parent::__construct();
+		parent::__construct($properties);
+	}
+
+	/**
+	 * Id getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getId ()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Descrizione getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getDescrizione ()
+	{
+		return $this->descrizione;
 	}
 
 }
