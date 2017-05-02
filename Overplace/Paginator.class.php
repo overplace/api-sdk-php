@@ -41,7 +41,7 @@ class Paginator extends \Overplace\Service
 	 * @access  protected
 	 * @var     string|null
 	 */
-	public $nextPage;
+	protected $nextPage;
 
 	/**
 	 * Array of headers request.
