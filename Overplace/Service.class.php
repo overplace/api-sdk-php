@@ -57,6 +57,8 @@ class Service
 			'verify' => false,
 			'http_errors' => false,
 			'headers' => array(
+				'Cache-Control' => 'no-cache',
+				'Pragma' => 'no-cache',
 				'user-agent' => \Overplace\Client::USER_AGENT . \Overplace\Client::CLIENT_VERSION
 			)
 		]);
