@@ -3,20 +3,20 @@
 namespace Overplace\Validate;
 
 /**
- * Class Checkin.
+ * Class Promozioni.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Checkin
+ * @name        Promozioni
  * @namespace   Overplace\Validate
  * @package     Overplace
  * @uses        \Overplace\Validate
  *
  * Date:        28/04/2017
  */
-class Checkin extends \Overplace\Validate
+class Promozioni extends \Overplace\Validate
 {
 
 	/**
-	 * Checkin constructor.
+	 * Promozioni constructor.
 	 * @access  public
 	 */
 	public function __construct ()

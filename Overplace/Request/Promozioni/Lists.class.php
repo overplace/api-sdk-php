@@ -1,12 +1,12 @@
 <?php
 
-namespace Overplace\Request\Checkin;
+namespace Overplace\Request\Promozioni;
 
 /**
  * Class Lists.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Lists
- * @namespace   Overplace\Request\Checkin
+ * @namespace   Overplace\Request\Promozioni
  * @package     Overplace
  * @uses        \Overplace\Request\Lists
  *
@@ -37,7 +37,7 @@ class Lists extends \Overplace\Request\Lists
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\Checkin\Lists
+	 * @return  \Overplace\Request\Promozioni\Lists
 	 */
 	public function setIdScheda ($idScheda)
 	{

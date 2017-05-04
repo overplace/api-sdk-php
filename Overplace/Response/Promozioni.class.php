@@ -3,69 +3,69 @@
 namespace Overplace\Response;
 
 /**
- * Class Checkin.
+ * Class Promozioni.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Checkin
+ * @name        Promozioni
  * @namespace   Overplace\Response
  * @package     Overplace
  * @uses        \Overplace\Response
  *
  * Date:        28/04/2017
  */
-class Checkin extends \Overplace\Response
+class Promozioni extends \Overplace\Response
 {
 
 	/**
-	 * Checkin id.
+	 * Promozioni id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * Checkin status.
+	 * Promozioni status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * Checkin type.
+	 * Promozioni type.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $tipologia;
 
 	/**
-	 * Checkin description.
+	 * Promozioni description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * Checkin Number of times required to subscribe.
+	 * Promozioni Number of times required to subscribe.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $checkinNecessari;
 
 	/**
-	 * Checkin available.
+	 * Promozioni available.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $premiErogabili;
 
 	/**
-	 * Checkin dispense.
+	 * Promozioni dispense.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $premiDistribuiti;
 
 	/**
-	 * Checkin flag unlimited. If true available checkin are unlimited (in this case
+	 * Promozioni flag unlimited. If true available checkin are unlimited (in this case
 	 * $premiErogabili must be ignored), false if are limited.
 	 * @access  protected
 	 * @var     bool
@@ -73,21 +73,21 @@ class Checkin extends \Overplace\Response
 	protected $premiIllimitati;
 
 	/**
-	 * Checkin start date.
+	 * Promozioni start date.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $dataInizioOfferta;
 
 	/**
-	 * Checkin end date.
+	 * Promozioni end date.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $dataFineOfferta;
 
 	/**
-	 * Checkin constructor.
+	 * Promozioni constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
