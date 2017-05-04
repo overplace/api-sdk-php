@@ -3,71 +3,62 @@
 namespace Overplace\Response;
 
 /**
- * Class Recensioni.
+ * Class Menu.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Recensioni
+ * @name        Menu
  * @namespace   Overplace\Response
  * @package     Overplace
  * @uses        \Overplace\Response
  *
- * Date:        03/05/2017
+ * Date:        04/05/2017
  */
-class Recensioni extends \Overplace\Response
+class Menu extends \Overplace\Response
 {
 
 	/**
-	 * Recensioni id.
+	 * Menu id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * Recensioni status.
+	 * Menu status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * Recensioni author.
-	 * @access  protected
-	 * @var     \Overplace\Response\Utente
-	 */
-	protected $autore;
-
-	/**
-	 * Recensioni vote.
-	 * Min value: 1
-	 * Max value: 5
-	 * @access  protected
-	 * @var     int
-	 */
-	protected $voto;
-
-	/**
-	 * Recensioni body text.
+	 * Menu title.
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $commento;
+	protected $titolo;
 
 	/**
-	 * Recensioni date.
+	 * Menu description
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $data;
+	protected $descrizione;
 
 	/**
-	 * Recensioni answer.
+	 * Menu visible flag. If true menu is published, otherwise no.
 	 * @access  protected
-	 * @var     \Overplace\Collection|\Overplace\Response\Recensioni
+	 * @var     bool
 	 */
-	protected $risposte;
+	protected $visibile;
 
 	/**
-	 * Commento constructor.
+	 * Menu collection of Categoria.
+	 * @access  protected
+	 * @var     \Overplace\Collection|\Overplace\Response\Categoria
+	 */
+	protected $categorie;
+
+	/**
+	 * Menu constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -76,8 +67,7 @@ class Recensioni extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
-			'autore' => \Overplace\Response\Utente::class,
-			'risposte' => \Overplace\Response\Recensioni::class
+			'categorie' => \Overplace\Response\Menu\Categoria::class
 		));
 	}
 
@@ -104,58 +94,47 @@ class Recensioni extends \Overplace\Response
 	}
 
 	/**
-	 * Autore getter.
-	 * @access  public
-	 *
-	 * @return  \Overplace\Response\Utente
-	 */
-	public function getAutore ()
-	{
-		return $this->autore;
-	}
-
-	/**
-	 * Voto getter.
-	 * @access  public
-	 *
-	 * @return  int
-	 */
-	public function getVoto ()
-	{
-		return $this->voto;
-	}
-
-	/**
-	 * Commento getter.
+	 * Titolo getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getCommento ()
+	public function getTitolo ()
 	{
-		return $this->commento;
+		return $this->titolo;
 	}
 
 	/**
-	 * Data getter.
+	 * Descrizione getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getData ()
+	public function getDescrizione ()
 	{
-		return $this->data;
+		return $this->descrizione;
 	}
 
 	/**
-	 * Risposte getter.
+	 * Visibile getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection|\Overplace\Response\Recensioni
+	 * @return  bool
 	 */
-	public function getRisposte ()
+	public function isVisibile ()
 	{
-		return $this->risposte;
+		return $this->visibile;
+	}
+
+	/**
+	 * Categorie getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Collection
+	 */
+	public function getCategorie ()
+	{
+		return $this->categorie;
 	}
 
 }

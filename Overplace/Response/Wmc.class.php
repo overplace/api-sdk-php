@@ -23,18 +23,18 @@ class Wmc extends \Overplace\Response
 	protected $id;
 
 	/**
-	 * Wmc typology.
-	 * @access  protected
-	 * @var     \Overplace\Response\Tipologia
-	 */
-	protected $tipologia;
-
-	/**
 	 * Wmc status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
+
+	/**
+	 * Wmc type.
+	 * @access  protected
+	 * @var     \Overplace\Response\Tipologia
+	 */
+	protected $tipologia;
 
 	/**
 	 * Wmc address.

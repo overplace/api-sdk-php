@@ -53,14 +53,14 @@ class Storytelling extends \Overplace\Response
 	/**
 	 * A collection of foto for this story.
 	 * @access  protected
-	 * @var     \Overplace\Collection
+	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	protected $foto;
 
 	/**
 	 * A collection of video for this story.
 	 * @access  protected
-	 * @var     \Overplace\Collection
+	 * @var     \Overplace\Collection|\Overplace\Response\Video
 	 */
 	protected $video;
 
@@ -139,7 +139,7 @@ class Storytelling extends \Overplace\Response
 	 * Foto getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection
+	 * @return  \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	public function getFoto ()
 	{
@@ -150,7 +150,7 @@ class Storytelling extends \Overplace\Response
 	 * Video getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection
+	 * @return  \Overplace\Collection|\Overplace\Response\Video
 	 */
 	public function getVideo ()
 	{

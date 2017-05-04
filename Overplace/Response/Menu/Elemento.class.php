@@ -1,85 +1,101 @@
 <?php
 
-namespace Overplace\Response;
+namespace Overplace\Response\Menu;
 
 /**
- * Class News.
+ * Class Elemento.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        News
- * @namespace   Overplace\Response
+ * @name        Elemento
+ * @namespace   Overplace\Response\Menu
  * @package     Overplace
  * @uses        \Overplace\Response
  *
- * Date:        19/04/2017
+ * Date:        04/05/2017
  */
-class News extends \Overplace\Response
+class Elemento extends \Overplace\Response
 {
 
 	/**
-	 * News Id.
+	 * Menu Element id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * News status.
+	 * Menu Element status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * News title.
+	 * Menu Element title.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $titolo;
 
 	/**
-	 * News text body.
+	 * Menu Element description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * News Foto.
+	 * Menu Element price.
+	 * @access  protected
+	 * @var     float
+	 */
+	protected $prezzo;
+
+	/**
+	 * Menu Element unit.
+	 * Possible values: "kilo", "etto", "unitario"
+	 * @access  protected
+	 * @var     string
+	 */
+	protected $unita;
+
+	/**
+	 * Menu Element external link.
+	 * @access  protected
+	 * @var     string
+	 */
+	protected $link;
+
+	/**
+	 * Menu Element allergens.
+	 * @access  protected
+	 * @var     array
+	 * @example array(0 => "Arachidi", 1 => "Latte" ...)
+	 */
+	protected $allergeni;
+
+	/**
+	 * Menu Element kcal.
+	 * @access  protected
+	 * @var     int
+	 */
+	protected $kcal;
+
+	/**
+	 * Menu Element attachment.
+	 * @access  protected
+	 * @var     \Overplace\Collection|\Overplace\Response\Allegato
+	 */
+	protected $allegato;
+
+	/**
+	 * Menu Element collection of foto.
 	 * @access  protected
 	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	protected $foto;
 
 	/**
-	 * Id post facebook.
-	 * @access  protected
-	 * @var     int
-	 */
-	protected $idFacebook;
-
-	/**
-	 * Id tweet.
-	 * @access  protected
-	 * @var     int
-	 */
-	protected $idTweet;
-
-	/**
-	 * Flag linkedin. True if shared on linkedin, false otherwise.
-	 * @access  protected
-	 * @var     bool
-	 */
-	protected $linkedin;
-
-	/**
-	 * News start date publication.
-	 * @access  protected
-	 * @var     string
-	 */
-	protected $dataInizioPubblicazione;
-
-	/**
-	 * News constructor.
+	 * Elemento constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -88,6 +104,7 @@ class News extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
+			'allegato' => \Overplace\Response\Allegato::class,
 			'foto' => \Overplace\Response\Foto::class
 		));
 	}
@@ -137,58 +154,80 @@ class News extends \Overplace\Response
 	}
 
 	/**
-	 * Foto getter.
+	 * Prezzo getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection|\Overplace\Response\Foto
+	 * @return  float
 	 */
-	public function getFoto ()
+	public function getPrezzo ()
 	{
-		return $this->foto;
+		return $this->prezzo;
 	}
 
 	/**
-	 * IdFacebook getter.
-	 * @access  public
-	 *
-	 * @return  int
-	 */
-	public function getIdFacebook ()
-	{
-		return $this->idFacebook;
-	}
-
-	/**
-	 * IdTweet getter.
-	 * @access  public
-	 *
-	 * @return  int
-	 */
-	public function getIdTweet ()
-	{
-		return $this->idTweet;
-	}
-
-	/**
-	 * Linkedin getter.
-	 * @access  public
-	 *
-	 * @return  bool
-	 */
-	public function isLinkedin ()
-	{
-		return $this->linkedin;
-	}
-
-	/**
-	 * DataInizioPubblicazione getter.
+	 * Unita getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getDataInizioPubblicazione ()
+	public function getUnita ()
 	{
-		return $this->dataInizioPubblicazione;
+		return $this->unita;
+	}
+
+	/**
+	 * Link getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getLink ()
+	{
+		return $this->link;
+	}
+
+	/**
+	 * Allergeni getter.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getAllergeni ()
+	{
+		return $this->allergeni;
+	}
+
+	/**
+	 * Kcal getter.
+	 * @access  public
+	 *
+	 * @return  int
+	 */
+	public function getKcal ()
+	{
+		return $this->kcal;
+	}
+
+	/**
+	 * Allegato getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Allegato
+	 */
+	public function getAllegato ()
+	{
+		return $this->allegato;
+	}
+
+	/**
+	 * Foto getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Collection
+	 */
+	public function getFoto ()
+	{
+		return $this->foto;
 	}
 
 }

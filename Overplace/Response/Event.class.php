@@ -53,7 +53,7 @@ class Event extends \Overplace\Response
 	/**
 	 * Event picture.
 	 * @access  protected
-	 * @var     \Overplace\Response\Foto
+	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	protected $foto;
 
@@ -152,7 +152,7 @@ class Event extends \Overplace\Response
 	 * Foto getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Response\Foto
+	 * @return  \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	public function getFoto ()
 	{

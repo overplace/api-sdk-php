@@ -106,7 +106,7 @@ class Coupon extends \Overplace\Response
 	/**
 	 * Coupon foto.
 	 * @access  protected
-	 * @var     \Overplace\Response\Foto
+	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	protected $foto;
 
@@ -260,14 +260,12 @@ class Coupon extends \Overplace\Response
 	 * Foto getter.
 	 * @access  public
 	 *
-	 * @return  mixed
+	 * @return  \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	public function getFoto ()
 	{
 		return $this->foto;
 	}
-
-
 
 }
 

@@ -23,18 +23,18 @@ class Foto extends \Overplace\Response
 	protected $id;
 
 	/**
-	 * Tipologia Foto.
-	 * @access  protected
-	 * @var     \Overplace\Response\Tipologia
-	 */
-	protected $tipologia;
-
-	/**
 	 * Foto status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
+
+	/**
+	 * Tipologia Foto.
+	 * @access  protected
+	 * @var     \Overplace\Response\Tipologia
+	 */
+	protected $tipologia;
 
 	/**
 	 * Foto title.
@@ -82,17 +82,6 @@ class Foto extends \Overplace\Response
 	}
 
 	/**
-	 * Tipologia getter.
-	 * @access  public
-	 *
-	 * @return  \Overplace\Response\Tipologia
-	 */
-	public function getTipologia ()
-	{
-		return $this->tipologia;
-	}
-
-	/**
 	 * Stato getter.
 	 * @access  public
 	 *
@@ -101,6 +90,17 @@ class Foto extends \Overplace\Response
 	public function getStato ()
 	{
 		return $this->stato;
+	}
+
+	/**
+	 * Tipologia getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\Tipologia
+	 */
+	public function getTipologia ()
+	{
+		return $this->tipologia;
 	}
 
 	/**

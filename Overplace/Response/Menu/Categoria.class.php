@@ -1,85 +1,64 @@
 <?php
 
-namespace Overplace\Response;
+namespace Overplace\Response\Menu;
 
 /**
- * Class News.
+ * Class Categoria.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        News
- * @namespace   Overplace\Response
+ * @name        Categoria
+ * @namespace   Overplace\Response\Menu
  * @package     Overplace
  * @uses        \Overplace\Response
  *
- * Date:        19/04/2017
+ * Date:        04/05/2017
  */
-class News extends \Overplace\Response
+class Categoria extends \Overplace\Response
 {
 
 	/**
-	 * News Id.
+	 * Menu Category id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * News status.
+	 * Menu Category status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * News title.
+	 * Menu Category title.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $titolo;
 
 	/**
-	 * News text body.
+	 * Menu Category description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * News Foto.
+	 * Menu Category collection of Categorie that are subcategory of this category.
 	 * @access  protected
-	 * @var     \Overplace\Collection|\Overplace\Response\Foto
+	 * @var     \Overplace\Collection|\Overplace\Response\Menu\Categoria
 	 */
-	protected $foto;
+	protected $sottocategorie;
 
 	/**
-	 * Id post facebook.
+	 * Menu Category collection of Elemento.
 	 * @access  protected
-	 * @var     int
+	 * @var     \Overplace\Collection|\Overplace\Response\Menu\Elemento
 	 */
-	protected $idFacebook;
+	protected $elementi;
 
 	/**
-	 * Id tweet.
-	 * @access  protected
-	 * @var     int
-	 */
-	protected $idTweet;
-
-	/**
-	 * Flag linkedin. True if shared on linkedin, false otherwise.
-	 * @access  protected
-	 * @var     bool
-	 */
-	protected $linkedin;
-
-	/**
-	 * News start date publication.
-	 * @access  protected
-	 * @var     string
-	 */
-	protected $dataInizioPubblicazione;
-
-	/**
-	 * News constructor.
+	 * Categoria constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -88,7 +67,8 @@ class News extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
-			'foto' => \Overplace\Response\Foto::class
+			'sottocategorie' => \Overplace\Response\Menu\Categoria::class,
+			'elementi' => \Overplace\Response\Menu\Elemento::class
 		));
 	}
 
@@ -137,58 +117,25 @@ class News extends \Overplace\Response
 	}
 
 	/**
-	 * Foto getter.
+	 * Sottocategorie getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection|\Overplace\Response\Foto
+	 * @return  \Overplace\Collection
 	 */
-	public function getFoto ()
+	public function getSottocategorie ()
 	{
-		return $this->foto;
+		return $this->sottocategorie;
 	}
 
 	/**
-	 * IdFacebook getter.
+	 * Elementi getter.
 	 * @access  public
 	 *
-	 * @return  int
+	 * @return  \Overplace\Collection
 	 */
-	public function getIdFacebook ()
+	public function getElementi ()
 	{
-		return $this->idFacebook;
-	}
-
-	/**
-	 * IdTweet getter.
-	 * @access  public
-	 *
-	 * @return  int
-	 */
-	public function getIdTweet ()
-	{
-		return $this->idTweet;
-	}
-
-	/**
-	 * Linkedin getter.
-	 * @access  public
-	 *
-	 * @return  bool
-	 */
-	public function isLinkedin ()
-	{
-		return $this->linkedin;
-	}
-
-	/**
-	 * DataInizioPubblicazione getter.
-	 * @access  public
-	 *
-	 * @return  string
-	 */
-	public function getDataInizioPubblicazione ()
-	{
-		return $this->dataInizioPubblicazione;
+		return $this->elementi;
 	}
 
 }

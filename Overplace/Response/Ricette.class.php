@@ -97,14 +97,14 @@ class Ricette extends \Overplace\Response
 	/**
 	 * Recipe collection of Foto.
 	 * @access  protected
-	 * @var     \Overplace\Collection
+	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	protected $foto;
 
 	/**
 	 * Recipe attachment.
 	 * @access  protected
-	 * @var     \Overplace\Response\Allegato
+	 * @var     \Overplace\Collection|\Overplace\Response\Allegato
 	 */
 	protected $allegato;
 
@@ -237,7 +237,7 @@ class Ricette extends \Overplace\Response
 	 * Foto getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection
+	 * @return  \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	public function getFoto ()
 	{
@@ -248,7 +248,7 @@ class Ricette extends \Overplace\Response
 	 * Allegato getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Response\Allegato
+	 * @return  \Overplace\Collection|\Overplace\Response\Allegato
 	 */
 	public function getAllegato ()
 	{
