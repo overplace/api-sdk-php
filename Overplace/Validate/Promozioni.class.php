@@ -8,7 +8,7 @@ namespace Overplace\Validate;
  * @name        Promozioni
  * @namespace   Overplace\Validate
  * @package     Overplace
- * @uses        \Overplace\Validate
+ * @see         \Overplace\Validate
  *
  * Date:        28/04/2017
  */

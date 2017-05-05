@@ -8,7 +8,7 @@ namespace Overplace\Request\Gallery;
  * @name        Lists
  * @namespace   Overplace\Request\Gallery
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        02/05/2017
  */

@@ -8,7 +8,7 @@ namespace Overplace\Response;
  * @name        Foto
  * @namespace   Overplace\Response
  * @package     Overplace
- * @uses        \Overplace\Response
+ * @see         \Overplace\Response
  *
  * Date:        20/04/2017
  */

@@ -9,7 +9,7 @@ namespace Overplace\Service;
  * @name        Wmc
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
  * @uses        \Overplace\Validate\Wmc
  *
  * Date:        19/04/2017
@@ -27,8 +27,8 @@ class Wmc extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Wmc();
 		$this->endpoint = array(
-			'list' => 'schede/list',
-			'get' => 'schede/%d/info'
+			'list' => "schede/list",
+			'get' => "schede/%d/info"
 		);
 	}
 
@@ -50,17 +50,17 @@ class Wmc extends \Overplace\Service
 	 * Throw a Service Exception if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Wmc\Get   $wmc    Request object for wmc get method.
+	 * @param   \Overplace\Request\Wmc\Get   $get    Request object for wmc get method.
 	 *
 	 * @return  \Overplace\Response\Wmc
 	 */
-	public function get (\Overplace\Request\Wmc\Get $wmc)
+	public function get (\Overplace\Request\Wmc\Get $get)
 	{
-		if (!$this->validator->validate("get", $wmc)){
+		if (!$this->validator->validate("get", $get)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $wmc->idScheda), array());
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda), array());
 	}
 
 }

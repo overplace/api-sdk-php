@@ -8,7 +8,8 @@ namespace Overplace\Service;
  * @name        Promozioni
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
+ * @uses        \Overplace\Validate\Promozioni
  *
  * Date:        28/04/2017
  */
@@ -26,7 +27,7 @@ class Promozioni extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Promozioni();
 		$this->endpoint = array(
-			'list' => 'schede/%d/promozioni/list'
+			'list' => "schede/%d/promozioni/list"
 		);
 	}
 

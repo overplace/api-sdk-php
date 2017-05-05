@@ -8,7 +8,8 @@ namespace Overplace\Service;
  * @name        Meteo
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
+ * @uses        \Overplace\Validate\Meteo
  *
  * Date:        28/04/2017
  */
@@ -26,7 +27,7 @@ class Meteo extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Meteo();
 		$this->endpoint = array(
-			'list' => 'schede/%d/meteo/list'
+			'list' => "schede/%d/meteo/list"
 		);
 	}
 
@@ -35,20 +36,20 @@ class Meteo extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Meteo\Lists     $meteoLists
+	 * @param   \Overplace\Request\Meteo\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\Meteo\Lists $meteoLists)
+	public function getList (\Overplace\Request\Meteo\Lists $lists)
 	{
-		if (!$this->validator->validate("list", $meteoLists)){
+		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
 		}
 
-		$params = $meteoLists->toArray();
+		$params = $lists->toArray();
 		unset($params['idScheda']);
 
-		return $this->request("GET", sprintf($this->endpoint['list'], $meteoLists->idScheda), $params);
+		return $this->request("GET", sprintf($this->endpoint['list'], $lists->idScheda), $params);
 	}
 
 }

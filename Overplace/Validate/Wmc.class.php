@@ -8,7 +8,7 @@ namespace Overplace\Validate;
  * @name        Wmc
  * @namespace   Overplace\Validate
  * @package     Overplace
- * @uses        \Overplace\Validate
+ * @see         \Overplace\Validate
  *
  * Date:        20/04/2017
  */
@@ -33,7 +33,7 @@ class Wmc extends \Overplace\Validate
 	 */
 	public function getRequiredForGet ()
 	{
-		return array('idScheda');
+		return array("idScheda");
 	}
 
 }

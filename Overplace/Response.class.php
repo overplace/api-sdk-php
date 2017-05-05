@@ -8,6 +8,7 @@ namespace Overplace;
  * @name        Response
  * @namespace   Overplace
  * @package     Overplace
+ * @uses        \ReflectionClass
  *
  * Date:        19/04/2017
  */

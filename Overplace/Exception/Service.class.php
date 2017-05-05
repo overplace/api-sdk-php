@@ -8,7 +8,7 @@ namespace Overplace\Exception;
  * @name        Service
  * @namespace   Overplace\Exception
  * @package     Overplace
- * @uses        \Overplace\Exception\Sdk
+ * @see         \Overplace\Exception\Sdk
  *
  * Date:        19/04/2017
  */

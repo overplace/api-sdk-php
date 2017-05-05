@@ -8,7 +8,7 @@ namespace Overplace\Validate;
  * @name        Gallery
  * @namespace   Overplace\Validate
  * @package     Overplace
- * @uses        \Overplace\Validate
+ * @see         \Overplace\Validate
  *
  * Date:        02/05/2017
  */

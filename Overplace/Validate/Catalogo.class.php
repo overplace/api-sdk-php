@@ -3,20 +3,20 @@
 namespace Overplace\Validate;
 
 /**
- * Class Menu.
+ * Class Catalogo.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Menu
+ * @name        Catalogo
  * @namespace   Overplace\Validate
  * @package     Overplace
  * @see         \Overplace\Validate
  *
- * Date:        04/05/2017
+ * Date:        05/05/2017
  */
-class Menu extends \Overplace\Validate
+class Catalogo extends \Overplace\Validate
 {
 
 	/**
-	 * Menu constructor.
+	 * Catalogo constructor.
 	 * @access  public
 	 * @see     \Overplace\Validate::__construct()
 	 */
@@ -44,7 +44,7 @@ class Menu extends \Overplace\Validate
 	 */
 	public function getRequiredForGet ()
 	{
-		return array("idScheda", "idMenu");
+		return array("idScheda", "idCatalogo");
 	}
 
 }

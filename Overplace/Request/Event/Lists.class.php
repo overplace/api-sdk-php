@@ -8,7 +8,7 @@ namespace Overplace\Request\Event;
  * @name        Lists
  * @namespace   Overplace\Request\Event
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        28/04/2017
  */

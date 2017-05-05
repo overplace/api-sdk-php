@@ -8,7 +8,7 @@ namespace Overplace\Validate;
  * @name        Event
  * @namespace   Overplace\Validate
  * @package     Overplace
- * @uses        \Overplace\Validate
+ * @see         \Overplace\Validate
  *
  * Date:        28/04/2017
  */
@@ -33,7 +33,7 @@ class Event extends \Overplace\Validate
 	 */
 	public function getRequiredForList ()
 	{
-		return array('idScheda');
+		return array("idScheda");
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Event extends \Overplace\Validate
 	 */
 	public function getRequiredForGet ()
 	{
-		return array('idScheda', 'idEvent');
+		return array("idScheda", "idEvent");
 	}
 
 }

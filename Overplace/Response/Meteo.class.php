@@ -7,6 +7,8 @@ namespace Overplace\Response;
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Meteo
  * @namespace   Overplace\Response
+ * @package     Overplace
+ * @see         \Overplace\Response
  *
  * Date:        28/04/2017
  */

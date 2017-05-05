@@ -8,7 +8,8 @@ namespace Overplace\Service;
  * @name        Coupon
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
+ * @uses        \Overplace\Validate\Coupon
  *
  * Date:        03/05/2017
  */
@@ -26,7 +27,7 @@ class Coupon extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Coupon();
 		$this->endpoint = array(
-			'list' => 'schede/%d/coupon/list'
+			'list' => "schede/%d/coupon/list"
 		);
 	}
 

@@ -8,7 +8,7 @@ namespace Overplace;
  * @name        Paginator
  * @namespace   Overplace
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
  *
  * Date:        21/04/2017
  */

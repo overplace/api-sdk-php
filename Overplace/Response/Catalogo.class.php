@@ -3,71 +3,69 @@
 namespace Overplace\Response;
 
 /**
- * Class Recensioni.
+ * Class Catalogo.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Recensioni
+ * @name        Catalogo
  * @namespace   Overplace\Response
  * @package     Overplace
  * @see         \Overplace\Response
  *
- * Date:        03/05/2017
+ * Date:        04/05/2017
  */
-class Recensioni extends \Overplace\Response
+class Catalogo extends \Overplace\Response
 {
 
 	/**
-	 * Recensioni id.
+	 * Catalogo id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * Recensioni status.
+	 * Catalogo status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * Recensioni author.
-	 * @access  protected
-	 * @var     \Overplace\Response\Utente
-	 */
-	protected $autore;
-
-	/**
-	 * Recensioni vote.
-	 * Min value: 1
-	 * Max value: 5
-	 * @access  protected
-	 * @var     int
-	 */
-	protected $voto;
-
-	/**
-	 * Recensioni body text.
+	 * Catalogo title.
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $commento;
+	protected $titolo;
 
 	/**
-	 * Recensioni date.
+	 * Catalogo description.
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $data;
+	protected $descrizione;
 
 	/**
-	 * Recensioni answer.
+	 * Catalogo visible flag. If true this catalogue is published, otherwise no.
 	 * @access  protected
-	 * @var     \Overplace\Collection|\Overplace\Response\Recensioni
+	 * @var     bool
 	 */
-	protected $risposte;
+	protected $visibile;
 
 	/**
-	 * Commento constructor.
+	 * Catalogo paypal flag. If true this wmc and catalogue have paypal configured.
+	 * @access  protected
+	 * @var     bool
+	 */
+	protected $paypalAttivo;
+
+	/**
+	 * Catalogo collection of Categoria.
+	 * @access  protected
+	 * @var     \Overplace\Collection|\Overplace\Response\Catalogo\Categoria
+	 */
+	protected $categorie;
+
+	/**
+	 * Catalogo constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -76,8 +74,7 @@ class Recensioni extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
-			'autore' => \Overplace\Response\Utente::class,
-			'risposte' => \Overplace\Response\Recensioni::class
+			'categorie' => \Overplace\Response\Catalogo\Categoria::class
 		));
 	}
 
@@ -104,58 +101,58 @@ class Recensioni extends \Overplace\Response
 	}
 
 	/**
-	 * Autore getter.
-	 * @access  public
-	 *
-	 * @return  \Overplace\Response\Utente
-	 */
-	public function getAutore ()
-	{
-		return $this->autore;
-	}
-
-	/**
-	 * Voto getter.
-	 * @access  public
-	 *
-	 * @return  int
-	 */
-	public function getVoto ()
-	{
-		return $this->voto;
-	}
-
-	/**
-	 * Commento getter.
+	 * Titolo getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getCommento ()
+	public function getTitolo ()
 	{
-		return $this->commento;
+		return $this->titolo;
 	}
 
 	/**
-	 * Data getter.
+	 * Descrizione getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getData ()
+	public function getDescrizione ()
 	{
-		return $this->data;
+		return $this->descrizione;
 	}
 
 	/**
-	 * Risposte getter.
+	 * Visibile getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection|\Overplace\Response\Recensioni
+	 * @return  bool
 	 */
-	public function getRisposte ()
+	public function isVisibile ()
 	{
-		return $this->risposte;
+		return $this->visibile;
+	}
+
+	/**
+	 * PaypalAttivo getter.
+	 * @access  public
+	 *
+	 * @return  bool
+	 */
+	public function isPaypalAttivo ()
+	{
+		return $this->paypalAttivo;
+	}
+
+	/**
+	 * Categorie getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Collection|\Overplace\Response\Catalogo\Categoria
+	 */
+	public function getCategorie ()
+	{
+		return $this->categorie;
 	}
 
 }

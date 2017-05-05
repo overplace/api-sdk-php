@@ -8,7 +8,7 @@ namespace Overplace\Request\Recensioni;
  * @name        Lists
  * @namespace   Overplace\Request\Recensioni
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        03/05/2017
  */

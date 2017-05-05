@@ -1,12 +1,12 @@
 <?php
 
-namespace Overplace\Response\Menu;
+namespace Overplace\Response\Catalogo;
 
 /**
  * Class Elemento.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Elemento
- * @namespace   Overplace\Response\Menu
+ * @namespace   Overplace\Response\Catalogo
  * @package     Overplace
  * @see         \Overplace\Response
  *
@@ -16,42 +16,58 @@ class Elemento extends \Overplace\Response
 {
 
 	/**
-	 * Menu Element id.
+	 * Catalogo element id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * Menu Element status.
+	 * Catalogo element status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * Menu Element title.
+	 * Catalogo element title.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $titolo;
 
 	/**
-	 * Menu Element description.
+	 * Catalogo element description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * Menu Element price.
+	 * Catalogo element type.
+	 * Possible value: "alimento", "prodotto".
+	 * @access  protected
+	 * @var     string
+	 */
+	protected $tipoProdotto;
+
+	/**
+	 * Catalogo element price
 	 * @access  protected
 	 * @var     float
 	 */
 	protected $prezzo;
 
 	/**
-	 * Menu Element unit.
+	 * Catalogo element discount.
+	 * If isset use this value instead prezzo for element price.
+	 * @access  protected
+	 * @var     float
+	 */
+	protected $sconto;
+
+	/**
+	 * Catalogo element unit.
 	 * Possible value: "kilo", "etto", "unitario".
 	 * @access  protected
 	 * @var     string
@@ -59,14 +75,24 @@ class Elemento extends \Overplace\Response
 	protected $unita;
 
 	/**
-	 * Menu Element external link.
+	 * Catalogo element link.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $link;
 
 	/**
-	 * Menu Element allergens.
+	 * Catalogo element link type.
+	 * Possible value: "scheda", "carrello".
+	 * If "scheda" element link is to external page info else if "carrello"
+	 * element link is to shop page.
+	 * @access  protected
+	 * @var     string
+	 */
+	protected $tipoLink;
+
+	/**
+	 * Catalogo element allergens.
 	 * @access  protected
 	 * @var     array
 	 * @example array(0 => "Arachidi", 1 => "Latte" ...)
@@ -74,21 +100,21 @@ class Elemento extends \Overplace\Response
 	protected $allergeni;
 
 	/**
-	 * Menu Element kcal.
+	 * Catalogo element kcal.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $kcal;
 
 	/**
-	 * Menu Element attachment.
+	 * Catalogo element attachment.
 	 * @access  protected
 	 * @var     \Overplace\Collection|\Overplace\Response\Allegato
 	 */
 	protected $allegato;
 
 	/**
-	 * Menu Element collection of foto.
+	 * Catalogo element collection of foto.
 	 * @access  protected
 	 * @var     \Overplace\Collection|\Overplace\Response\Foto
 	 */
@@ -154,6 +180,17 @@ class Elemento extends \Overplace\Response
 	}
 
 	/**
+	 * TipoProdotto getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTipoProdotto ()
+	{
+		return $this->tipoProdotto;
+	}
+
+	/**
 	 * Prezzo getter.
 	 * @access  public
 	 *
@@ -162,6 +199,17 @@ class Elemento extends \Overplace\Response
 	public function getPrezzo ()
 	{
 		return $this->prezzo;
+	}
+
+	/**
+	 * Sconto getter.
+	 * @access  public
+	 *
+	 * @return  float
+	 */
+	public function getSconto ()
+	{
+		return $this->sconto;
 	}
 
 	/**
@@ -184,6 +232,17 @@ class Elemento extends \Overplace\Response
 	public function getLink ()
 	{
 		return $this->link;
+	}
+
+	/**
+	 * TipoLink getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getTipoLink ()
+	{
+		return $this->tipoLink;
 	}
 
 	/**
@@ -212,7 +271,7 @@ class Elemento extends \Overplace\Response
 	 * Allegato getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Response\Allegato
+	 * @return  \Overplace\Collection|\Overplace\Response\Allegato
 	 */
 	public function getAllegato ()
 	{
@@ -223,7 +282,7 @@ class Elemento extends \Overplace\Response
 	 * Foto getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection
+	 * @return  \Overplace\Collection|\Overplace\Response\Foto
 	 */
 	public function getFoto ()
 	{

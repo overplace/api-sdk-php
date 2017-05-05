@@ -1,16 +1,16 @@
 <?php
 
-namespace Overplace\Request\Menu;
+namespace Overplace\Request\Catalogo;
 
 /**
  * Class Get.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Get
- * @namespace   Overplace\Request\Menu
+ * @namespace   Overplace\Request\Catalogo
  * @package     Overplace
  * @see         \Overplace\Request
  *
- * Date:        04/05/2017
+ * Date:        05/05/2017
  */
 class Get extends \Overplace\Request
 {
@@ -23,11 +23,11 @@ class Get extends \Overplace\Request
 	public $idScheda;
 
 	/**
-	 * Id menu.
+	 * Id catalogo.
 	 * @access  public
 	 * @var     int
 	 */
-	public $idMenu;
+	public $idCatalogo;
 
 	/**
 	 * Get constructor.
@@ -44,25 +44,24 @@ class Get extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\Menu\Get
+	 * @return  \Overplace\Request\Catalogo\Get
 	 */
 	public function setIdScheda ($idScheda)
 	{
 		$this->idScheda = $idScheda;
-
 		return $this;
 	}
 
 	/**
-	 * IdMenu setter.
+	 * IdCatalogo setter.
 	 * @access  public
-	 * @param   int     $idMenu     Id menu
+	 * @param   int     $idCatalogo Id catalogo
 	 *
-	 * @return  \Overplace\Request\Menu\Get
+	 * @return  \Overplace\Request\Catalogo\Get
 	 */
-	public function setIdMenu ($idMenu)
+	public function setIdCatalogo ($idCatalogo)
 	{
-		$this->idMenu = $idMenu;
+		$this->idCatalogo = $idCatalogo;
 
 		return $this;
 	}

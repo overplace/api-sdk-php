@@ -8,7 +8,7 @@ namespace Overplace\Exception;
  * @name        Sdk
  * @namespace   Overplace\Exception
  * @package     Overplace
- * @uses        \Exception
+ * @see         \Exception
  *
  * Date:        19/04/2017
  */

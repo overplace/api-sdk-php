@@ -9,7 +9,7 @@ namespace Overplace\Service;
  * @name        Event
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
  * @uses        \Overplace\Validate\Event
  *
  * Date:        28/04/2017
@@ -38,20 +38,20 @@ class Event extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Event\Lists     $eventsList
+	 * @param   \Overplace\Request\Event\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\Event\Lists $eventsList)
+	public function getList (\Overplace\Request\Event\Lists $lists)
 	{
-		if (!$this->validator->validate("list", $eventsList)){
+		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
 		}
 
-		$params = $eventsList->toArray();
+		$params = $lists->toArray();
 		unset($params['idScheda']);
 
-		return $this->request("GET", sprintf($this->endpoint['list'], $eventsList->idScheda), $params);
+		return $this->request("GET", sprintf($this->endpoint['list'], $lists->idScheda), $params);
 	}
 
 	/**
@@ -59,17 +59,17 @@ class Event extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Event\Get     $eventGet
+	 * @param   \Overplace\Request\Event\Get     $get
 	 *
 	 * @return  \Overplace\Response\Event
 	 */
-	public function get (\Overplace\Request\Event\Get $eventGet)
+	public function get (\Overplace\Request\Event\Get $get)
 	{
-		if (!$this->validator->validate("get", $eventGet)){
+		if (!$this->validator->validate("get", $get)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $eventGet->idScheda, $eventGet->idEvent), array());
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idEvent), array());
 	}
 
 }

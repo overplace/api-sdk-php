@@ -9,7 +9,7 @@ namespace Overplace\Service;
  * @name        News
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
  * @uses        \Overplace\Validate\News
  *
  * Date:        19/04/2017
@@ -38,20 +38,20 @@ class News extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\News\Lists     $newsList
+	 * @param   \Overplace\Request\News\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\News\Lists $newsList)
+	public function getList (\Overplace\Request\News\Lists $lists)
 	{
-		if (!$this->validator->validate("list", $newsList)){
+		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
 		}
 
-		$params = $newsList->toArray();
+		$params = $lists->toArray();
 		unset($params['idScheda']);
 
-		return $this->request("GET", sprintf($this->endpoint['list'], $newsList->idScheda), $params);
+		return $this->request("GET", sprintf($this->endpoint['list'], $lists->idScheda), $params);
 	}
 
 	/**
@@ -59,17 +59,17 @@ class News extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\News\Get     $newsGet
+	 * @param   \Overplace\Request\News\Get     $get
 	 *
 	 * @return  \Overplace\Response\News
 	 */
-	public function get (\Overplace\Request\News\Get $newsGet)
+	public function get (\Overplace\Request\News\Get $get)
 	{
-		if (!$this->validator->validate("get", $newsGet)){
+		if (!$this->validator->validate("get", $get)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $newsGet->idScheda, $newsGet->idNews), array());
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idNews), array());
 	}
 
 }

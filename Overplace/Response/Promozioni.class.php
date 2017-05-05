@@ -8,7 +8,7 @@ namespace Overplace\Response;
  * @name        Promozioni
  * @namespace   Overplace\Response
  * @package     Overplace
- * @uses        \Overplace\Response
+ * @see         \Overplace\Response
  *
  * Date:        28/04/2017
  */

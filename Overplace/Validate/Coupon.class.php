@@ -8,7 +8,7 @@ namespace Overplace\Validate;
  * @name        Coupon
  * @namespace   Overplace\Validate
  * @package     Overplace
- * @uses        \Overplace\Validate
+ * @see         \Overplace\Validate
  *
  * Date:        03/05/2017
  */

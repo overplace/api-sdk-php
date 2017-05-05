@@ -8,7 +8,7 @@ namespace Overplace\Request\Promozioni;
  * @name        Lists
  * @namespace   Overplace\Request\Promozioni
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        28/04/2017
  */

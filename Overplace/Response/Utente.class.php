@@ -8,7 +8,7 @@ namespace Overplace\Response;
  * @name        Utente
  * @namespace   Overplace\Response
  * @package     Overplace
- * @uses        \Overplace\Response
+ * @see         \Overplace\Response
  *
  * Date:        03/05/2017
  */

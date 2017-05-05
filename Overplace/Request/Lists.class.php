@@ -8,6 +8,7 @@ namespace Overplace\Request;
  * @name        Lists
  * @namespace   Overplace\Request
  * @package     Overplace
+ * @see         \Overplace\Request
  *
  * Date:        27/04/2017
  */
@@ -339,10 +340,10 @@ class Lists extends \Overplace\Request
 			case self::GREATER_THAN_OR_EQUAL_TO:
 			case self::LESS_THAN_OR_EQUAL_TO:
 				return true;
-				break;
+			break;
 			default:
 				return false;
-				break;
+			break;
 		}
 	}
 

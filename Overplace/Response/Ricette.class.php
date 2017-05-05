@@ -8,7 +8,7 @@ namespace Overplace\Response;
  * @name        Ricette
  * @namespace   Overplace\Response
  * @package     Overplace
- * @uses        \Overplace\Response
+ * @see         \Overplace\Response
  *
  * Date:        02/05/2017
  */

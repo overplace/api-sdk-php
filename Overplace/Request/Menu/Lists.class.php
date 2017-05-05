@@ -8,7 +8,7 @@ namespace Overplace\Request\Menu;
  * @name        Lists
  * @namespace   Overplace\Request\Menu
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        04/05/2017
  */

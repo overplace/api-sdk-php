@@ -8,7 +8,8 @@ namespace Overplace\Service;
  * @name        Storytelling
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
+ * @uses        \Overplace\Validate\Storytelling
  *
  * Date:        02/05/2017
  */
@@ -26,7 +27,7 @@ class Storytelling extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Storytelling();
 		$this->endpoint = array(
-			'list' => 'schede/%d/storytelling/list'
+			'list' => "schede/%d/storytelling/list"
 		);
 	}
 
@@ -35,20 +36,20 @@ class Storytelling extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Storytelling\Lists     $storyLists
+	 * @param   \Overplace\Request\Storytelling\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\Storytelling\Lists $storyLists)
+	public function getList (\Overplace\Request\Storytelling\Lists $lists)
 	{
-		if (!$this->validator->validate("list", $storyLists)){
+		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
 		}
 
-		$params = $storyLists->toArray();
+		$params = $lists->toArray();
 		unset($params['idScheda']);
 
-		return $this->request("GET", sprintf($this->endpoint['list'], $storyLists->idScheda), $params);
+		return $this->request("GET", sprintf($this->endpoint['list'], $lists->idScheda), $params);
 	}
 
 }

@@ -8,7 +8,8 @@ namespace Overplace\Service;
  * @name        Recensioni
  * @namespace   Overplace\Service
  * @package     Overplace
- * @uses        \Overplace\Service
+ * @see         \Overplace\Service
+ * @uses        \Overplace\Validate\Recensioni
  *
  * Date:        03/05/2017
  */
@@ -26,29 +27,29 @@ class Recensioni extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Recensioni();
 		$this->endpoint = array(
-			'list' => 'schede/%d/recensioni/list'
+			'list' => "schede/%d/recensioni/list"
 		);
 	}
 
 	/**
-	 * Returns a collection of commenti.
+	 * Returns a collection of Recensioni.
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Recensioni\Lists     $recensioniLists
+	 * @param   \Overplace\Request\Recensioni\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\Recensioni\Lists $recensioniLists)
+	public function getList (\Overplace\Request\Recensioni\Lists $lists)
 	{
-		if (!$this->validator->validate("list", $recensioniLists)){
+		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
 		}
 
-		$params = $recensioniLists->toArray();
+		$params = $lists->toArray();
 		unset($params['idScheda']);
 
-		return $this->request("GET", sprintf($this->endpoint['list'], $recensioniLists->idScheda), $params);
+		return $this->request("GET", sprintf($this->endpoint['list'], $lists->idScheda), $params);
 	}
 
 }

@@ -3,21 +3,21 @@
 namespace Overplace\Service;
 
 /**
- * Class Menu.
+ * Class Catalogo.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Menu
+ * @name        Catalogo
  * @namespace   Overplace\Service
  * @package     Overplace
  * @see         \Overplace\Service
- * @uses        \Overplace\Validate\Menu
+ * @uses        \Overplace\Validate\Catalogo
  *
- * Date:        04/05/2017
+ * Date:        05/05/2017
  */
-class Menu extends \Overplace\Service
+class Catalogo extends \Overplace\Service
 {
 
 	/**
-	 * Menu constructor.
+	 * Catalogo constructor.
 	 * @access  public
 	 * @see     \Overplace\Service::__construct()
 	 * @param   \Overplace\Client   $client     Client.
@@ -25,23 +25,23 @@ class Menu extends \Overplace\Service
 	public function __construct (\Overplace\Client $client)
 	{
 		parent::__construct($client);
-		$this->validator = new \Overplace\Validate\Menu();
+		$this->validator = new \Overplace\Validate\Catalogo();
 		$this->endpoint = array(
-			'list' => "schede/%d/menu/list",
-			'get' => "schede/%d/menu/%d"
+			'list' => "schede/%d/catalogo/list",
+			'get' => "schede/%d/catalogo/%d"
 		);
 	}
 
 	/**
-	 * Returns a collection of menu.
+	 * Returns a collection of catalogo.
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Menu\Lists     $lists
+	 * @param   \Overplace\Request\Catalogo\Lists     $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList (\Overplace\Request\Menu\Lists $lists)
+	public function getList (\Overplace\Request\Catalogo\Lists $lists)
 	{
 		if (!$this->validator->validate("list", $lists)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForList()));
@@ -54,21 +54,21 @@ class Menu extends \Overplace\Service
 	}
 
 	/**
-	 * Returns menu object response.
+	 * Returns catalogo object response.
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Menu\Get     $get
+	 * @param   \Overplace\Request\Catalogo\Get     $get
 	 *
-	 * @return  \Overplace\Response\Menu
+	 * @return  \Overplace\Response\Catalogo
 	 */
-	public function get (\Overplace\Request\Menu\Get $get)
+	public function get (\Overplace\Request\Catalogo\Get $get)
 	{
 		if (!$this->validator->validate("get", $get)){
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idMenu));
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idCatalogo));
 	}
 
 }

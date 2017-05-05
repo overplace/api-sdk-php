@@ -10,6 +10,7 @@ namespace Overplace;
  * @package     Overplace
  * @see         \Iterator
  * @see         \Countable
+ * @uses        \Overplace\Paginator
  *
  * Date:        19/04/2017
  */

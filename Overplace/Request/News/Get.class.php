@@ -9,7 +9,7 @@ namespace Overplace\Request\News;
  * @name        Get
  * @namespace   Overplace\Request\News
  * @package     Overplace
- * @uses        \Overplace\Request
+ * @see         \Overplace\Request
  *
  * Date:        27/04/2017
  */

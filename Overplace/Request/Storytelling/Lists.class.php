@@ -8,7 +8,7 @@ namespace Overplace\Request\Storytelling;
  * @name        Lists
  * @namespace   Overplace\Request\Storytelling
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        02/05/2017
  */

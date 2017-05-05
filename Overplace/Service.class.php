@@ -8,6 +8,7 @@ namespace Overplace;
  * @name        Service
  * @namespace   Overplace
  * @package     Overplace
+ * @uses        \Overplace\Client
  * @uses        \GuzzleHttp\Client
  *
  * Date:        19/04/2017
@@ -85,7 +86,7 @@ class Service
 		if ($method == 'GET'){
 			$options = array(
 				'headers' => array_merge($headers, array(
-						"Authentication" => $auth->getHttpHeader($auth->hash($method, http_build_query($params, null, "&", PHP_QUERY_RFC1738)))
+						'Authentication' => $auth->getHttpHeader($auth->hash($method, http_build_query($params, null, "&", PHP_QUERY_RFC1738)))
 					)
 				),
 				'query' => $params
@@ -93,7 +94,7 @@ class Service
 		}else {
 			$options = array(
 				'headers' => array_merge($headers, array(
-						"Authentication" => $auth->getHttpHeader($auth->hash($method, json_encode($params, 0, 512)))
+						'Authentication' => $auth->getHttpHeader($auth->hash($method, json_encode($params, 0, 512)))
 					)
 				),
 				'json' => $params

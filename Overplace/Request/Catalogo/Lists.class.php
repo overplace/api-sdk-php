@@ -1,16 +1,16 @@
 <?php
 
-namespace Overplace\Request\Coupon;
+namespace Overplace\Request\Catalogo;
 
 /**
  * Class Lists.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Lists
- * @namespace   Overplace\Request\Coupon
+ * @namespace   Overplace\Request\Catalogo
  * @package     Overplace
  * @see         \Overplace\Request\Lists
  *
- * Date:        03/05/2017
+ * Date:        04/05/2017
  */
 class Lists extends \Overplace\Request\Lists
 {
@@ -37,7 +37,7 @@ class Lists extends \Overplace\Request\Lists
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\Coupon\Lists
+	 * @return  \Overplace\Request\Catalogo\Lists
 	 */
 	public function setIdScheda ($idScheda)
 	{

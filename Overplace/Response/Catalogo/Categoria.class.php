@@ -1,64 +1,64 @@
 <?php
 
-namespace Overplace\Response;
+namespace Overplace\Response\Catalogo;
 
 /**
- * Class Menu.
+ * Class Categoria.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Menu
- * @namespace   Overplace\Response
+ * @name        Categoria
+ * @namespace   Overplace\Response\Catalogo
  * @package     Overplace
  * @see         \Overplace\Response
  *
  * Date:        04/05/2017
  */
-class Menu extends \Overplace\Response
+class Categoria extends \Overplace\Response
 {
 
 	/**
-	 * Menu id.
+	 * Catalogo category id.
 	 * @access  protected
 	 * @var     int
 	 */
 	protected $id;
 
 	/**
-	 * Menu status.
+	 * Catalogo category status.
 	 * @access  protected
 	 * @var     \Overplace\Response\Tipologia
 	 */
 	protected $stato;
 
 	/**
-	 * Menu title.
+	 * Catalogo category title.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $titolo;
 
 	/**
-	 * Menu description
+	 * Catalogo category description.
 	 * @access  protected
 	 * @var     string
 	 */
 	protected $descrizione;
 
 	/**
-	 * Menu visible flag. If true this menu is published, otherwise no.
+	 * Catalogo category collection of subcategory.
 	 * @access  protected
-	 * @var     bool
+	 * @var     \Overplace\Collection|\Overplace\Response\Catalogo\Categoria
 	 */
-	protected $visibile;
+	protected $sottocategorie;
 
 	/**
-	 * Menu collection of Categoria.
+	 * Catalogo category collection of element.
 	 * @access  protected
-	 * @var     \Overplace\Collection|\Overplace\Response\Categoria
+	 * @var     \Overplace\Collection|\Overplace\Response\Catalogo\Elemento
 	 */
-	protected $categorie;
+	protected $elementi;
 
 	/**
-	 * Menu constructor.
+	 * Categoria constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
@@ -67,7 +67,8 @@ class Menu extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
-			'categorie' => \Overplace\Response\Menu\Categoria::class
+			'sottocategorie' => \Overplace\Response\Catalogo\Categoria::class,
+			'elementi' => \Overplace\Response\Catalogo\Elemento::class
 		));
 	}
 
@@ -116,25 +117,25 @@ class Menu extends \Overplace\Response
 	}
 
 	/**
-	 * Visibile getter.
+	 * Sottocategorie getter.
 	 * @access  public
 	 *
-	 * @return  bool
+	 * @return  \Overplace\Collection|\Overplace\Response\Catalogo\Categoria
 	 */
-	public function isVisibile ()
+	public function getSottocategorie ()
 	{
-		return $this->visibile;
+		return $this->sottocategorie;
 	}
 
 	/**
-	 * Categorie getter.
+	 * Elementi getter.
 	 * @access  public
 	 *
-	 * @return  \Overplace\Collection
+	 * @return  \Overplace\Collection|\Overplace\Response\Catalogo\Elemento
 	 */
-	public function getCategorie ()
+	public function getElementi ()
 	{
-		return $this->categorie;
+		return $this->elementi;
 	}
 
 }

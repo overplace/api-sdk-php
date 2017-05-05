@@ -8,7 +8,7 @@ namespace Overplace\Request\Meteo;
  * @name        Lists
  * @namespace   Overplace\Request\Meteo
  * @package     Overplace
- * @uses        \Overplace\Request\Lists
+ * @see         \Overplace\Request\Lists
  *
  * Date:        28/04/2017
  */

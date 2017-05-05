@@ -9,7 +9,7 @@ namespace Overplace\Request\Event;
  * @name        Get
  * @namespace   Overplace\Request\Event
  * @package     Overplace
- * @uses        \Overplace\Request
+ * @see         \Overplace\Request
  *
  * Date:        28/04/2017
  */

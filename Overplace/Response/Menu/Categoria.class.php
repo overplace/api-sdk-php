@@ -8,7 +8,7 @@ namespace Overplace\Response\Menu;
  * @name        Categoria
  * @namespace   Overplace\Response\Menu
  * @package     Overplace
- * @uses        \Overplace\Response
+ * @see         \Overplace\Response
  *
  * Date:        04/05/2017
  */
