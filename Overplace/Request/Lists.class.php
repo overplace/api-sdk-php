@@ -104,19 +104,28 @@ class Lists extends \Overplace\Request
 	private static $conditionsBetween = 24;
 
 	/**
-	 * Sort name.
+	 * Array of sort.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addSortBy()
-	 * @var     string
+	 * @see     \Overplace\Request\Lists::addSortBy()
+	 * @var     array
 	 */
 	protected $s;
+
+	/**
+	 * Array of group.
+	 * Defined in extended constant class.
+	 * @access  protected
+	 * @see     \Overplace\Request\Lists::addGroupBy()
+	 * @var     array
+	 */
+	protected $g;
 
 	/**
 	 * Array of and filters.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addFilterAnd()
+	 * @see     \Overplace\Request\Lists::addFilterAnd()
 	 * @var     array
 	 */
 	protected $a;
@@ -125,7 +134,7 @@ class Lists extends \Overplace\Request
 	 * Array of or filters.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addFilterOr()
+	 * @see     \Overplace\Request\Lists::addFilterOr()
 	 * @var     array
 	 */
 	protected $o;
@@ -134,7 +143,7 @@ class Lists extends \Overplace\Request
 	 * Array of in filters.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addFilterIn()
+	 * @see     \Overplace\Request\Lists::addFilterIn()
 	 * @var     array
 	 */
 	protected $i;
@@ -143,7 +152,7 @@ class Lists extends \Overplace\Request
 	 * Array of not in filters.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addFilterNotIn()
+	 * @see     \Overplace\Request\Lists::addFilterNotIn()
 	 * @var     array
 	 */
 	protected $ni;
@@ -152,7 +161,7 @@ class Lists extends \Overplace\Request
 	 * Array of between filters.
 	 * Defined in extended constant class.
 	 * @access  protected
-	 * @see     \Overplace\Request::addFilterBetween()
+	 * @see     \Overplace\Request\Lists::addFilterBetween()
 	 * @var     array
 	 */
 	protected $b;
@@ -183,6 +192,7 @@ class Lists extends \Overplace\Request
 	{
 		parent::__construct();
 		$this->s = array();
+		$this->g = array();
 		$this->a = array();
 		$this->o = array();
 		$this->i = array();
@@ -221,7 +231,7 @@ class Lists extends \Overplace\Request
 	/**
 	 * Define sort.
 	 * @access  public
-	 * @param   int     $sort  Sort name.
+	 * @param   int     $sort  Sort code.
 	 * @param   int     $order Sort type. Default \Overplace\Request::ORDER_ASC. [Optional]
 	 *
 	 * @return  mixed
@@ -230,6 +240,22 @@ class Lists extends \Overplace\Request
 	{
 		if (is_int($sort) && is_int($order) && ($order === self::ORDER_ASC || $order === self::ORDER_DESC)){
 			$this->s[$sort] = $order;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Define group.
+	 * @access  public
+	 * @param   int     $group  Group code.
+	 *
+	 * @return  mixed
+	 */
+	public function addGroupBy ($group)
+	{
+		if (is_int($group)){
+			$this->g[] = $group;
 		}
 
 		return $this;
