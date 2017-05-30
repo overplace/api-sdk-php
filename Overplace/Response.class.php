@@ -3,7 +3,7 @@
 namespace Overplace;
 
 /**
- * Class Response
+ * Class Response.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Response
  * @namespace   Overplace
@@ -23,21 +23,31 @@ class Response
 	protected $_map;
 
 	/**
+	 * String message for response.
+	 * @access  protected
+	 * @see     \Overplace\Response::getMessage()
+	 * @var     string
+	 */
+	protected $_message;
+
+	/**
 	 * Response constructor.
 	 * @access  public
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 * @param   array   $map        Array $property => $classname. Default is empty array. [Optional]
+	 * @param   string  $message    Response message. Used when no properties returns from request but only message string. [Optional]
 	 */
-	public function __construct (array $properties = array(), array $map = array())
+	public function __construct (array $properties = array(), array $map = array(), $message = '')
 	{
 		$this->_map = $map;
+		$this->_message = $message;
 		if (!empty($properties)){
 			$this->assign($properties);
 		}
 	}
 
 	/**
-	 * Return array with all properties, excluded _map property.
+	 * Return array with all properties, excluded _map and _message property.
 	 * @access  public
 	 *
 	 * @return  array
@@ -45,8 +55,19 @@ class Response
 	public function toArray ()
 	{
 		$properties = get_object_vars($this);
-		unset($properties['_map']);
+		unset($properties['_map'], $properties['_message']);
 		return $properties;
+	}
+
+	/**
+	 * Message getter.
+	 * @access  public
+	 *
+	 * @return  string
+	 */
+	public function getMessage ()
+	{
+		return $this->_message;
 	}
 
 	/**

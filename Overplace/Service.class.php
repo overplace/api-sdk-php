@@ -104,7 +104,11 @@ class Service
 		$response = $this->guzzle->request($method, $uri, $options);
 		$body = json_decode($response->getBody()->getContents(), true, 512, 0);
 		if (($response->getStatusCode() < 200 || $response->getStatusCode() >= 300) || !(isset($body['status']) && $body['status'])){
-			throw new \Overplace\Exception\Service($body['message']);
+			throw new \Overplace\Exception\Service($body['message'], $response->getStatusCode());
+		}
+
+		if ($method == 'DELETE'){
+			return new \Overplace\Response(array(), array(), $body['message']);
 		}
 
 		$class = (isset($expectedClass) && is_string($expectedClass) && !empty($expectedClass)) ? $expectedClass : substr(static::class, (strrpos(static::class, "\\") + 1), strlen(static::class));

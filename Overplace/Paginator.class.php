@@ -18,7 +18,7 @@ class Paginator extends \Overplace\Service
 	/**
 	 * Paging info.
 	 * @access  protected
-	 * @var     \stdClass
+	 * @var     \Overplace\Paginator\Page
 	 */
 	protected $page;
 
@@ -68,7 +68,8 @@ class Paginator extends \Overplace\Service
 	public function __construct (\Overplace\Client $client, array $paginator, array $headers = array(), $expectedClass = null)
 	{
 		parent::__construct($client);
-		$this->page = (isset($paginator['page']) && is_array($paginator['page'])) ? (object) $paginator['page'] : new \stdClass();
+		$page = (isset($paginator['page']) && is_array($paginator['page'])) ? (object) $paginator['page'] : new \stdClass();
+		$this->page = new \Overplace\Paginator\Page($page);
 		$this->prevPage = (isset($paginator['prev']) && !empty($paginator['prev'])) ? $paginator['prev'] : null;
 		$this->currentPage = (isset($paginator['current']) && !empty($paginator['current'])) ? $paginator['current'] : null;
 		$this->nextPage = (isset($paginator['next']) && !empty($paginator['next'])) ? $paginator['next'] : null;
@@ -102,7 +103,7 @@ class Paginator extends \Overplace\Service
 	 * Return page info.
 	 * @access  public
 	 *
-	 * @return  \stdClass
+	 * @return  \Overplace\Paginator\Page
 	 */
 	public function getPage ()
 	{

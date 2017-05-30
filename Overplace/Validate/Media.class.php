@@ -3,20 +3,20 @@
 namespace Overplace\Validate;
 
 /**
- * Class News.
+ * Class Media.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        News
+ * @name        Media
  * @namespace   Overplace\Validate
  * @package     Overplace
  * @see         \Overplace\Validate
  *
- * Date:        19/04/2017
+ * Date:        17/05/2017
  */
-class News extends \Overplace\Validate
+class Media extends \Overplace\Validate
 {
 
 	/**
-	 * News constructor.
+	 * Media constructor.
 	 * @access  public
 	 * @see     \Overplace\Validate::__construct()
 	 */
@@ -37,47 +37,47 @@ class News extends \Overplace\Validate
 	}
 
 	/**
-	 * Return properties required for get method.
+	 * Return properties required fot get method.
 	 * @access  public
 	 *
 	 * @return  array
 	 */
 	public function getRequiredForGet ()
 	{
-		return array("idScheda", "idNews");
+		return array("idScheda", "idMedia");
 	}
 
 	/**
-	 * Return properties required for create method.
+	 * Return properties required fot upload method.
 	 * @access  public
 	 *
 	 * @return  array
 	 */
-	public function getRequiredForCreate ()
+	public function getRequiredForUpload ()
 	{
-		return array("idScheda", "titolo", "messaggio");
+		return array("idScheda", "file");
 	}
 
 	/**
-	 * Return properties required for patch method.
+	 * Return properties required fot patch method.
 	 * @access  public
 	 *
 	 * @return  array
 	 */
 	public function getRequiredForPatch ()
 	{
-		return array("idScheda", "idNews");
+		return array("idScheda", "idMedia");
 	}
 
 	/**
-	 * Return properties required for delete method.
+	 * Return properties required fot delete method.
 	 * @access  public
 	 *
 	 * @return  array
 	 */
 	public function getRequiredForDelete ()
 	{
-		return array("idScheda", "idNews");
+		return array("idScheda", "idMedia");
 	}
 
 }

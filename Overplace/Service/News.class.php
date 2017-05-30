@@ -29,7 +29,10 @@ class News extends \Overplace\Service
 		$this->validator = new \Overplace\Validate\News();
 		$this->endpoint = array(
 			'list' => "schede/%d/news/list",
-			'get' => "schede/%d/news/%d"
+			'get' => "schede/%d/news/%d",
+			'create' => "schede/%d/news/create",
+			'patch' => "schede/%d/news/%d",
+			'delete' => "schede/%d/news/%d"
 		);
 	}
 
@@ -70,6 +73,65 @@ class News extends \Overplace\Service
 		}
 
 		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idNews), array());
+	}
+
+	/**
+	 * Create news.
+	 * Returns news object response.
+	 * @access  public
+	 * @throws \Overplace\Exception\Service
+	 * @param   \Overplace\Request\News\Create  $create
+	 *
+	 * @return  \Overplace\Response\News
+	 */
+	public function create (\Overplace\Request\News\Create $create)
+	{
+		if (!$this->validator->validate("create", $create)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForCreate()));
+		}
+
+		$params = $create->toArray();
+		unset($params['idScheda']);
+
+		return $this->request("POST", sprintf($this->endpoint['create'], $create->idScheda), $params);
+	}
+
+	/**
+	 * Patch news.
+	 * Returns updated news object response.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\News\Patch   $patch
+	 *
+	 * @return  \Overplace\Response\News
+	 */
+	public function patch (\Overplace\Request\News\Patch $patch)
+	{
+		if (!$this->validator->validate("patch", $patch)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForPatch()));
+		}
+
+		$params = $patch->toArray();
+		unset($params['idScheda'], $params['idNews']);
+
+		return $this->request("PATCH", sprintf($this->endpoint['patch'], $patch->idScheda, $patch->idNews), $params);
+	}
+
+	/**
+	 * Delete news.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\News\Delete  $delete
+	 *
+	 * @return  \Overplace\Response
+	 */
+	public function delete (\Overplace\Request\News\Delete $delete)
+	{
+		if (!$this->validator->validate("delete", $delete)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForDelete()));
+		}
+
+		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idNews));
 	}
 
 }
