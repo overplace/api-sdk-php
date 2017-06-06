@@ -83,7 +83,7 @@ class Service
 	protected function request ($method, $uri, array $params = array(), array $headers = array(), $expectedClass = null)
 	{
 		$auth = $this->client->getAuth();
-		if ($method == 'GET'){
+		if ($method == 'GET' || $method == 'DELETE'){
 			$options = array(
 				'headers' => array_merge($headers, array(
 						'Authentication' => $auth->getHttpHeader($auth->hash($method, http_build_query($params, null, "&", PHP_QUERY_RFC1738)))

@@ -41,7 +41,7 @@ class News extends \Overplace\Response
 	 * @access  protected
 	 * @var     string
 	 */
-	protected $descrizione;
+	protected $messaggio;
 
 	/**
 	 * News Foto.
@@ -126,14 +126,14 @@ class News extends \Overplace\Response
 	}
 
 	/**
-	 * Descrizione getter.
+	 * Messaggio getter.
 	 * @access  public
 	 *
 	 * @return  string
 	 */
-	public function getDescrizione ()
+	public function getMessaggio ()
 	{
-		return $this->descrizione;
+		return $this->messaggio;
 	}
 
 	/**

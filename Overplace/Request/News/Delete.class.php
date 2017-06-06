@@ -31,6 +31,20 @@ class Delete extends \Overplace\Request
 	public $idNews;
 
 	/**
+	 * Flag delete news from Facebook.
+	 * @access  public
+	 * @var     bool
+	 */
+	public $deleteOnFacebook;
+
+	/**
+	 * Flag delete news from Twitter.
+	 * @access  public
+	 * @var     bool
+	 */
+	public $deleteOnTwitter;
+
+	/**
 	 * Delete constructor.
 	 * @access  public
 	 * @see     \Overplace\Request::__construct()
@@ -64,6 +78,34 @@ class Delete extends \Overplace\Request
 	public function setIdNews ($idNews)
 	{
 		$this->idNews = $idNews;
+
+		return $this;
+	}
+
+	/**
+	 * DeleteOnFacebook setter.
+	 * @access  public
+	 * @param   bool    $deleteOnFacebook
+	 *
+	 * @return  \Overplace\Request\News\Delete
+	 */
+	public function setDeleteOnFacebook ($deleteOnFacebook)
+	{
+		$this->deleteOnFacebook = $deleteOnFacebook;
+
+		return $this;
+	}
+
+	/**
+	 * DeleteOnTwitter setter.
+	 * @access  public
+	 * @param   bool    $deleteOnTwitter
+	 *
+	 * @return  \Overplace\Request\News\Delete
+	 */
+	public function setDeleteOnTwitter ($deleteOnTwitter)
+	{
+		$this->deleteOnTwitter = $deleteOnTwitter;
 
 		return $this;
 	}

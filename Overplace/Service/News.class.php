@@ -114,6 +114,10 @@ class News extends \Overplace\Service
 		$params = $patch->toArray();
 		unset($params['idScheda'], $params['idNews']);
 
+		if (empty($params)){
+			throw new \Overplace\Exception\Service("Nothing to update!");
+		}
+
 		return $this->request("PATCH", sprintf($this->endpoint['patch'], $patch->idScheda, $patch->idNews), $params);
 	}
 
@@ -131,7 +135,10 @@ class News extends \Overplace\Service
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForDelete()));
 		}
 
-		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idNews));
+		$params = $delete->toArray();
+		unset($params['idScheda'], $params['idNews']);
+
+		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idNews), $params);
 	}
 
 }
