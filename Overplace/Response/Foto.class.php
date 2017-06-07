@@ -53,20 +53,22 @@ class Foto extends \Overplace\Response
 	/**
 	 * Foto url.
 	 * @access  protected
-	 * @var     string
+	 * @var     \Overplace\Response\Foto\Url
 	 */
 	protected $url;
 
 	/**
 	 * Foto constructor.
 	 * @access  public
+	 * @see     \Overplace\Response::__construct()
 	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
 	 */
 	public function __construct (array $properties = array())
 	{
 		parent::__construct($properties, array(
 			'tipologia' => \Overplace\Response\Tipologia::class,
-			'stato' => \Overplace\Response\Tipologia::class
+			'stato' => \Overplace\Response\Tipologia::class,
+			'url' => \Overplace\Response\Foto\Url::class
 		));
 	}
 
@@ -129,7 +131,7 @@ class Foto extends \Overplace\Response
 	 * Url getter.
 	 * @access  public
 	 *
-	 * @return  string
+	 * @return  \Overplace\Response\Foto\Url
 	 */
 	public function getUrl ()
 	{

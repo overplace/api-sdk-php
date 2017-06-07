@@ -47,6 +47,17 @@ class Event extends \Overplace\Validate
 		return array("idScheda", "idEvent");
 	}
 
+	/**
+	 * Return properties required for delete method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForDelete ()
+	{
+		return array("idScheda", "idEvent");
+	}
+
 }
 
 ?>

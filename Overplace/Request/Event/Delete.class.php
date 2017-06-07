@@ -3,17 +3,16 @@
 namespace Overplace\Request\Event;
 
 /**
- * Class Get.
- * Request object for get single event.
+ * Class Delete.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Get
+ * @name        Delete
  * @namespace   Overplace\Request\Event
  * @package     Overplace
  * @see         \Overplace\Request
  *
- * Date:        28/04/2017
+ * Date:        07/06/2017
  */
-class Get extends \Overplace\Request
+class Delete extends \Overplace\Request
 {
 
 	/**
@@ -31,7 +30,7 @@ class Get extends \Overplace\Request
 	public $idEvent;
 
 	/**
-	 * Get constructor.
+	 * Delete constructor.
 	 * @access  public
 	 * @see     \Overplace\Request::__construct()
 	 */
@@ -45,7 +44,7 @@ class Get extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idScheda
 	 *
-	 * @return  \Overplace\Request\Event\Get
+	 * @return  \Overplace\Request\Event\Delete
 	 */
 	public function setIdScheda ($idScheda)
 	{
@@ -59,7 +58,7 @@ class Get extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idEvent
 	 *
-	 * @return  \Overplace\Request\Event\Get
+	 * @return  \Overplace\Request\Event\Delete
 	 */
 	public function setIdEvent ($idEvent)
 	{

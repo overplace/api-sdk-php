@@ -28,7 +28,7 @@ class Wmc extends \Overplace\Service
 		$this->validator = new \Overplace\Validate\Wmc();
 		$this->endpoint = array(
 			'list' => "schede/list",
-			'get' => "schede/%d/info"
+			'get' => "schede/%d"
 		);
 	}
 
@@ -40,9 +40,9 @@ class Wmc extends \Overplace\Service
 	 *
 	 * @return  \Overplace\Collection
 	 */
-	public function getList ()
+	public function getList (\Overplace\Request\Wmc\Lists $lists = null)
 	{
-		return $this->request("GET", $this->endpoint['list'], array());
+		return $this->request("GET", $this->endpoint['list'], (isset($lists)) ? $lists->toArray() : array());
 	}
 
 	/**

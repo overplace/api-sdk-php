@@ -1,5 +1,9 @@
 <?php
 
+if (version_compare(PHP_VERSION, '5.5.0', '<')){
+	die("Overplace Sdk requires php 5.5.0 version or higher");
+}
+
 /**
  * Overplace Sdk Autoload.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>

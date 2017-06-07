@@ -29,7 +29,8 @@ class Event extends \Overplace\Service
 		$this->validator = new \Overplace\Validate\Event();
 		$this->endpoint = array(
 			'list' => "schede/%d/eventi/list",
-			'get' => "schede/%d/eventi/%d"
+			'get' => "schede/%d/eventi/%d",
+			'delete' => "schede/%d/eventi/%d"
 		);
 	}
 
@@ -69,7 +70,27 @@ class Event extends \Overplace\Service
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idEvent), array());
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idEvent));
+	}
+
+	/**
+	 * Delete Event.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Event\Delete     $delete
+	 *
+	 * @return  \Overplace\Response
+	 */
+	public function delete (\Overplace\Request\Event\Delete $delete)
+	{
+		if (!$this->validator->validate("delete", $delete)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForDelete()));
+		}
+
+		$params = $delete->toArray();
+		unset($params['idScheda'], $params['idEvent']);
+
+		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idEvent), $params);
 	}
 
 }
