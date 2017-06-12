@@ -36,6 +36,28 @@ class Coupon extends \Overplace\Validate
 		return array("idScheda");
 	}
 
+	/**
+	 * Return properties required for get method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForGet ()
+	{
+		return array("idScheda", "idCoupon");
+	}
+
+	/**
+	 * Return properties required for delete method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForDelete ()
+	{
+		return array("idScheda", "idCoupon");
+	}
+
 }
 
 ?>

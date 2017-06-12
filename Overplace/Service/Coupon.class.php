@@ -27,7 +27,9 @@ class Coupon extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Coupon();
 		$this->endpoint = array(
-			'list' => "schede/%d/coupon/list"
+			'list' => "schede/%d/coupon/list",
+			'get' => "schede/%d/coupon/%d",
+			'delete' => "schede/%d/coupon/%d"
 		);
 	}
 
@@ -50,6 +52,47 @@ class Coupon extends \Overplace\Service
 		unset($params['idScheda']);
 
 		return $this->request("GET", sprintf($this->endpoint['list'], $couponLists->idScheda), $params);
+	}
+
+	/**
+	 * Returns coupon object response.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Coupon\Get   $get
+	 *
+	 * @return  \Overplace\Response\Coupon
+	 */
+	public function get (\Overplace\Request\Coupon\Get $get)
+	{
+		if (!$this->validator->validate("get", $get)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
+		}
+
+		$params = $get->toArray();
+		unset($params['idScheda'], $params['idCoupon']);
+
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idCoupon), $params);
+	}
+
+	/**
+	 * Delete coupon.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Coupon\Delete    $delete
+	 *
+	 * @return  \Overplace\Response
+	 */
+	public function delete (\Overplace\Request\Coupon\Delete $delete)
+	{
+		if (!$this->validator->validate("delete", $delete)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForDelete()));
+		}
+
+		$params = $delete->toArray();
+		unset($params['idScheda'], $params['idCoupon']);
+
+		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idCoupon), $params);
 	}
 
 }

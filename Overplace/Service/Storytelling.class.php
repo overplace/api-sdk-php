@@ -58,7 +58,7 @@ class Storytelling extends \Overplace\Service
 
 	/**
 	 * Returns a storytelling response.
-	 * Throw \Overplace\Exception\Service if an error occured.
+	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
 	 * @param   \Overplace\Request\Storytelling\Get     $get
@@ -79,7 +79,7 @@ class Storytelling extends \Overplace\Service
 
 	/**
 	 * Returns created storytelling object response.
-	 * Throw \Overplace\Exception\Service if an error occured.
+	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
 	 * @param   \Overplace\Request\Storytelling\Create  $create
@@ -100,7 +100,7 @@ class Storytelling extends \Overplace\Service
 
 	/**
 	 * Returns patched storytelling object response.
-	 * Throw \Overplace\Exception\Service if an error occured.
+	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
 	 * @param   \Overplace\Request\Storytelling\Patch   $patch
@@ -121,7 +121,7 @@ class Storytelling extends \Overplace\Service
 
 	/**
 	 * Delete a story.
-	 * Throw \Overplace\Exception\Service if an error occured.
+	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
 	 * @param   \Overplace\Request\Storytelling\Delete  $delete
