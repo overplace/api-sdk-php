@@ -30,6 +30,8 @@ class Event extends \Overplace\Service
 		$this->endpoint = array(
 			'list' => "schede/%d/eventi/list",
 			'get' => "schede/%d/eventi/%d",
+			'create' => "schede/%d/eventi/create",
+			'patch' => "schede/%d/eventi/%d",
 			'delete' => "schede/%d/eventi/%d"
 		);
 	}
@@ -71,6 +73,50 @@ class Event extends \Overplace\Service
 		}
 
 		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idEvent));
+	}
+
+	/**
+	 * Create an Event.
+	 * Return Event object response if successfully created.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Event\Create     $create
+	 *
+	 * @return  \Overplace\Response\Event
+	 */
+	public function create (\Overplace\Request\Event\Create $create)
+	{
+		if (!$this->validator->validate("create", $create)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForCreate()));
+		}
+
+		$params = $create->toArray();
+		unset($params['idScheda']);
+
+		return $this->request("POST", sprintf($this->endpoint['create'], $create->idScheda), $params);
+	}
+
+	/**
+	 * Patch Event.
+	 * Return updated Event object response if success.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Event\Patch     $patch
+	 *
+	 * @return  \Overplace\Response\Event
+	 */
+	public function patch (\Overplace\Request\Event\Patch $patch)
+	{
+		if (!$this->validator->validate("patch", $patch)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForPatch()));
+		}
+
+		$params = $patch->toArray();
+		unset($params['idScheda'], $params['idEvent']);
+
+		return $this->request("PATCH", sprintf($this->endpoint['patch'], $patch->idScheda, $patch->idEvent), $params);
 	}
 
 	/**

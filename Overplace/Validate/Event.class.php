@@ -48,6 +48,28 @@ class Event extends \Overplace\Validate
 	}
 
 	/**
+	 * Return properties required for create method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForCreate ()
+	{
+		return array("idScheda", "titolo", "descrizione", "dataInizioEvento", "dataFineEvento");
+	}
+
+	/**
+	 * Return properties required for patch method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForPatch ()
+	{
+		return array("idScheda", "idEvent");
+	}
+
+	/**
 	 * Return properties required for delete method.
 	 * @access  public
 	 *
