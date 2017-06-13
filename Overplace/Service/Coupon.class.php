@@ -29,6 +29,8 @@ class Coupon extends \Overplace\Service
 		$this->endpoint = array(
 			'list' => "schede/%d/coupon/list",
 			'get' => "schede/%d/coupon/%d",
+			'create' => "schede/%d/coupon/create",
+			'patch' => "schede/%d/coupon/%d",
 			'delete' => "schede/%d/coupon/%d"
 		);
 	}
@@ -56,6 +58,7 @@ class Coupon extends \Overplace\Service
 
 	/**
 	 * Returns coupon object response.
+	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
 	 * @param   \Overplace\Request\Coupon\Get   $get
@@ -72,6 +75,48 @@ class Coupon extends \Overplace\Service
 		unset($params['idScheda'], $params['idCoupon']);
 
 		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idCoupon), $params);
+	}
+
+	/**
+	 * Returns created coupon.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Coupon\Create    $create
+	 *
+	 * @return  \Overplace\Response\Coupon
+	 */
+	public function create (\Overplace\Request\Coupon\Create $create)
+	{
+		if (!$this->validator->validate("create", $create)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForCreate()));
+		}
+
+		$params = $create->toArray();
+		unset($params['idScheda']);
+
+		return $this->request("POST", sprintf($this->endpoint['create'], $create->idScheda), $params);
+	}
+
+	/**
+	 * Returns patched coupon.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Coupon\Patch     $patch
+	 *
+	 * @return  \Overplace\Response\Coupon
+	 */
+	public function patch (\Overplace\Request\Coupon\Patch $patch)
+	{
+		if (!$this->validator->validate("patch", $patch)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForPatch()));
+		}
+
+		$params = $patch->toArray();
+		unset($params['idScheda'], $params['idCoupon']);
+
+		return $this->request("PATCH", sprintf($this->endpoint['patch'], $patch->idScheda, $patch->idCoupon), $params);
 	}
 
 	/**

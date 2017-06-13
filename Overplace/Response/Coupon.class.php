@@ -30,6 +30,13 @@ class Coupon extends \Overplace\Response
 	protected $stato;
 
 	/**
+	 * Coupon email template.
+	 * @access  protected
+	 * @var     \Overplace\Response\EmailTemplate
+	 */
+	protected $emailTemplate;
+
+	/**
 	 * Coupon title.
 	 * @access  protected
 	 * @var     string
@@ -114,12 +121,13 @@ class Coupon extends \Overplace\Response
 	 * Coupon constructor.
 	 * @access  public
 	 * @see     \Overplace\Response::__construct()
-	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
+	 * @param   array   $properties     Array with property name => values to assign. Default is empty array. [Optional]
 	 */
 	public function __construct (array $properties = array())
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
+			'emailTemplate' => \Overplace\Response\EmailTemplate::class,
 			'foto' => \Overplace\Response\Foto::class
 		));
 	}
@@ -144,6 +152,17 @@ class Coupon extends \Overplace\Response
 	public function getStato ()
 	{
 		return $this->stato;
+	}
+
+	/**
+	 * EmailTemplate getter.
+	 * @access  public
+	 *
+	 * @return  \Overplace\Response\EmailTemplate
+	 */
+	public function getEmailTemplate ()
+	{
+		return $this->emailTemplate;
 	}
 
 	/**
