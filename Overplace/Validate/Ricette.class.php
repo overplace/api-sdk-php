@@ -36,6 +36,17 @@ class Ricette extends \Overplace\Validate
 		return array("idScheda");
 	}
 
+	/**
+	 * Return properties required for get method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForGet ()
+	{
+		return array("idScheda", "idRicetta");
+	}
+
 }
 
 ?>

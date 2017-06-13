@@ -3,16 +3,16 @@
 namespace Overplace\Response;
 
 /**
- * Class Ricette.
+ * Class Ricetta.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Ricette
+ * @name        Ricetta
  * @namespace   Overplace\Response
  * @package     Overplace
  * @see         \Overplace\Response
  *
  * Date:        02/05/2017
  */
-class Ricette extends \Overplace\Response
+class Ricetta extends \Overplace\Response
 {
 
 	/**

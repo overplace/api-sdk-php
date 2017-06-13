@@ -152,6 +152,27 @@ class Collection implements \Iterator, \Countable
 		return $this->paginator;
 	}
 
+	/**
+	 * Convert collection object to array with all properties, excluded _map and _message property.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function toArray ()
+	{
+		$data = array();
+		$len = count($this->data);
+		for ($i = 0; $i < $len; $i++){
+			if ($this->data[$i] instanceof \Overplace\Response){
+				$data[] = $this->data[$i]->toArray();
+			}else {
+				$data[] = $this->data[$i];
+			}
+		}
+
+		return $data;
+	}
+
 }
 
 ?>

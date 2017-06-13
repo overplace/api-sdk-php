@@ -56,6 +56,15 @@ class Response
 	{
 		$properties = get_object_vars($this);
 		unset($properties['_map'], $properties['_message']);
+
+		$keys = array_keys($properties);
+		$len = count($keys);
+		for ($i = 0; $i < $len; $i++){
+			if ($properties[$keys[$i]] instanceof \Overplace\Response || $properties[$keys[$i]] instanceof \Overplace\Collection){
+				$properties[$keys[$i]] = $properties[$keys[$i]]->toArray();
+			}
+		}
+
 		return $properties;
 	}
 
