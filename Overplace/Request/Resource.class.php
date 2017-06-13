@@ -1,21 +1,20 @@
 <?php
 
-namespace Overplace;
+namespace Overplace\Request;
 
 /**
- * Class Request.
+ * Class Resource.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Request
- * @namespace   Overplace
- * @package     Overplace
+ * @name        Resource
+ * @namespace   Overplace\Request
  *
- * Date:        20/04/2017
+ * Date:        13/06/2017
  */
-class Request
+class Resource
 {
 
 	/**
-	 * Request constructor.
+	 * Resource constructor.
 	 * @access  public
 	 */
 	public function __construct ()
@@ -24,7 +23,7 @@ class Request
 	}
 
 	/**
-	 * Convert request object in array with only properties that have a value.
+	 * Convert Resource in array.
 	 * @access  public
 	 *
 	 * @return  array

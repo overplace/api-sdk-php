@@ -60,8 +60,7 @@ class Ricetta extends \Overplace\Response
 	/**
 	 * Recipe ingredients.
 	 * @access  protected
-	 * @var     array
-	 * @example array(0 => array("nome" => "Acqua", "dose" => "50cl"), 1 => ...)
+	 * @var     \Overplace\Collection|\Overplace\Response\Ricetta\Ingrediente
 	 */
 	protected $ingredienti;
 
@@ -73,16 +72,14 @@ class Ricetta extends \Overplace\Response
 	 * "costo" => Indicative price for recipe. Min value: 1, Max value: 5. 0 if not provided.
 	 * "difficolta" => Level of difficulty of the recipe. Min value: 1, Max value: 5. 0 if not provided
 	 * @access  protected
-	 * @var     array
-	 * @example array("preparazione" => 90, "cottura" => 20, "dosi" => 1, "costo" => 2, "difficolta" => 3)
+	 * @var     \Overplace\Response\Ricetta\Dati
 	 */
 	protected $dati;
 
 	/**
 	 * Recipe allergens.
 	 * @access  protected
-	 * @var     array
-	 * @example array(0 => "Arachidi", 1 => "Latte" ...)
+	 * @var     \Overplace\Collection|\Overplace\Response\Allergene
 	 */
 	protected $allergeni;
 
@@ -118,6 +115,9 @@ class Ricetta extends \Overplace\Response
 	{
 		parent::__construct($properties, array(
 			'stato' => \Overplace\Response\Tipologia::class,
+			'ingredienti' => \Overplace\Response\Ricetta\Ingrediente::class,
+			'dati' => \Overplace\Response\Ricetta\Dati::class,
+			'allergeni' => \Overplace\Response\Allergene::class,
 			'foto' => \Overplace\Response\Foto::class,
 			'allegato' => \Overplace\Response\Allegato::class
 		));

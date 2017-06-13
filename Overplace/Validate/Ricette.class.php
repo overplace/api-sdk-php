@@ -47,6 +47,39 @@ class Ricette extends \Overplace\Validate
 		return array("idScheda", "idRicetta");
 	}
 
+	/**
+	 * Return properties required for create method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForCreate ()
+	{
+		return array("idScheda", "titolo", "descrizione", "preparazione");
+	}
+
+	/**
+	 * Return properties required for patch method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForPatch ()
+	{
+		return array("idScheda", "idRicetta");
+	}
+
+	/**
+	 * Return properties required for delete method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForDelete ()
+	{
+		return array("idScheda", "idRicetta");
+	}
+
 }
 
 ?>
