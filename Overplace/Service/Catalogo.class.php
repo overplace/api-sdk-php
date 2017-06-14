@@ -28,7 +28,8 @@ class Catalogo extends \Overplace\Service
 		$this->validator = new \Overplace\Validate\Catalogo();
 		$this->endpoint = array(
 			'list' => "schede/%d/catalogo/list",
-			'get' => "schede/%d/catalogo/%d"
+			'get' => "schede/%d/catalogo/%d",
+			'delete' => "schede/%d/catalogo/%d"
 		);
 	}
 
@@ -68,7 +69,31 @@ class Catalogo extends \Overplace\Service
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idCatalogo));
+		$params = $get->toArray();
+		unset($params['idScheda'], $params['idCatalogo']);
+
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda, $get->idCatalogo), $params);
+	}
+
+	/**
+	 * Delete catalogo.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Catalogo\Delete  $delete
+	 *
+	 * @return  \Overplace\Response
+	 */
+	public function delete (\Overplace\Request\Catalogo\Delete $delete)
+	{
+		if (!$this->validator->validate("delete", $delete)){
+			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForDelete()));
+		}
+
+		$params = $delete->toArray();
+		unset($params['idScheda'], $params['idCatalogo']);
+
+		return $this->request("DELETE", sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idCatalogo), $params);
 	}
 
 }

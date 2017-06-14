@@ -150,6 +150,7 @@ class Media extends \Overplace\Service
 
 		return $this->request('DELETE', sprintf($this->endpoint['delete'], $delete->idScheda, $delete->idMedia), $params);
 	}
+
 }
 
 ?>

@@ -3,16 +3,16 @@
 namespace Overplace\Request\Catalogo;
 
 /**
- * Class Get.
+ * Class Delete.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Get
+ * @name        Delete
  * @namespace   Overplace\Request\Catalogo
  * @package     Overplace
  * @see         \Overplace\Request
  *
  * Date:        05/05/2017
  */
-class Get extends \Overplace\Request
+class Delete extends \Overplace\Request
 {
 
 	/**
@@ -30,7 +30,7 @@ class Get extends \Overplace\Request
 	public $idCatalogo;
 
 	/**
-	 * Get constructor.
+	 * Delete constructor.
 	 * @access  public
 	 * @see     \Overplace\Request::__construct()
 	 */
@@ -44,7 +44,7 @@ class Get extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idScheda   Id scheda
 	 *
-	 * @return  \Overplace\Request\Catalogo\Get
+	 * @return  \Overplace\Request\Catalogo\Delete
 	 */
 	public function setIdScheda ($idScheda)
 	{
@@ -58,7 +58,7 @@ class Get extends \Overplace\Request
 	 * @access  public
 	 * @param   int     $idCatalogo Id catalogo
 	 *
-	 * @return  \Overplace\Request\Catalogo\Get
+	 * @return  \Overplace\Request\Catalogo\Delete
 	 */
 	public function setIdCatalogo ($idCatalogo)
 	{
