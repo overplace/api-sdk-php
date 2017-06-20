@@ -27,8 +27,8 @@ class Wmc extends \Overplace\Service
 		parent::__construct($client);
 		$this->validator = new \Overplace\Validate\Wmc();
 		$this->endpoint = array(
-			'list' => "schede/list",
-			'get' => "schede/%d"
+			'list' => "wmc/list",
+			'get' => "wmc/%d"
 		);
 	}
 
@@ -37,6 +37,7 @@ class Wmc extends \Overplace\Service
 	 * Throw \Overplace\Exception\Service if an error occurred.
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Wmc\Lists    $lists
 	 *
 	 * @return  \Overplace\Collection
 	 */

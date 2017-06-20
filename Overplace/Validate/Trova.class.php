@@ -3,21 +3,22 @@
 namespace Overplace\Validate;
 
 /**
- * Class Meteo.
+ * Class Trova.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Meteo
+ * @name        Trova
  * @namespace   Overplace\Validate
  * @package     Overplace
  * @see         \Overplace\Validate
  *
- * Date:        28/04/2017
+ * Date:        19/06/2017
  */
-class Meteo extends \Overplace\Validate
+class Trova extends \Overplace\Validate
 {
 
 	/**
-	 * Meteo constructor.
+	 * Trova constructor.
 	 * @access  public
+	 * @see     \Overplace\Validate::__construct()
 	 */
 	public function __construct ()
 	{
@@ -25,14 +26,14 @@ class Meteo extends \Overplace\Validate
 	}
 
 	/**
-	 * Return properties required for getList method.
+	 * Return properties required for get method.
 	 * @access  public
 	 *
 	 * @return  array
 	 */
-	public function getRequiredForList ()
+	public function getRequiredForGet ()
 	{
-		return array("comune");
+		return array();
 	}
 
 }

@@ -18,6 +18,7 @@ class Ingredienti extends \Overplace\Request\Resource\Collection
 	/**
 	 * Ingredienti constructor.
 	 * @access  public
+	 * @see     \Overplace\Request\Resource\Collection::__construct()
 	 */
 	public function __construct ()
 	{

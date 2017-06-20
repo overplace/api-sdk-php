@@ -64,46 +64,6 @@ class Lists extends \Overplace\Request
 	const ORDER_DESC = 6;
 
 	/**
-	 * Condition code of and filter.
-	 * @static
-	 * @access  private
-	 * @var     int
-	 */
-	private static $conditionsAnd = 20;
-
-	/**
-	 * Condition code of or filter.
-	 * @static
-	 * @access  private
-	 * @var     int
-	 */
-	private static $conditionsOr = 21;
-
-	/**
-	 * Condition code of in filter.
-	 * @static
-	 * @access  private
-	 * @var     int
-	 */
-	private static $conditionsIn = 22;
-
-	/**
-	 * Condition code of not in filter.
-	 * @static
-	 * @access  private
-	 * @var     int
-	 */
-	private static $conditionsNotIn = 23;
-
-	/**
-	 * Condition code of between filter.
-	 * @static
-	 * @access  private
-	 * @var     int
-	 */
-	private static $conditionsBetween = 24;
-
-	/**
 	 * Array of sort.
 	 * Defined in extended constant class.
 	 * @access  protected

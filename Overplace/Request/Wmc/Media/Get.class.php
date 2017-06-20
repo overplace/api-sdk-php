@@ -1,17 +1,16 @@
 <?php
 
-namespace Overplace\Request\Wmc;
+namespace Overplace\Request\Wmc\Media;
 
 /**
  * Class Get.
- * Request object for get single wmc.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Get
- * @namespace   Overplace\Request
+ * @namespace   Overplace\Request\Wmc\Media
  * @package     Overplace
  * @see         \Overplace\Request
  *
- * Date:        20/04/2017
+ * Date:        27/04/2017
  */
 class Get extends \Overplace\Request
 {
@@ -22,6 +21,13 @@ class Get extends \Overplace\Request
 	 * @var     int
 	 */
 	public $idWmc;
+
+	/**
+	 * Id media.
+	 * @access  public
+	 * @var     int
+	 */
+	public $idMedia;
 
 	/**
 	 * Get constructor.
@@ -35,13 +41,27 @@ class Get extends \Overplace\Request
 	/**
 	 * IdWmc setter.
 	 * @access  public
-	 * @param   int     $idWmc   IdWmc
+	 * @param   int     $idWmc
 	 *
-	 * @return  \Overplace\Request\Wmc\Get
+	 * @return  \Overplace\Request\Wmc\Media\Get
 	 */
 	public function setIdWmc ($idWmc)
 	{
 		$this->idWmc = $idWmc;
+
+		return $this;
+	}
+
+	/**
+	 * idMedia setter.
+	 * @access  public
+	 * @param   int     $idMedia
+	 *
+	 * @return  \Overplace\Request\Wmc\Media\Get
+	 */
+	public function setIdMedia ($idMedia)
+	{
+		$this->idMedia = $idMedia;
 
 		return $this;
 	}

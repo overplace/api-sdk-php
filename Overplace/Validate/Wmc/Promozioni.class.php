@@ -1,22 +1,22 @@
 <?php
 
-namespace Overplace\Validate;
+namespace Overplace\Validate\Wmc;
 
 /**
- * Class Meteo.
+ * Class Promozioni.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
- * @name        Meteo
- * @namespace   Overplace\Validate
+ * @name        Promozioni
+ * @namespace   Overplace\Validate\Wmc
  * @package     Overplace
  * @see         \Overplace\Validate
  *
  * Date:        28/04/2017
  */
-class Meteo extends \Overplace\Validate
+class Promozioni extends \Overplace\Validate
 {
 
 	/**
-	 * Meteo constructor.
+	 * Promozioni constructor.
 	 * @access  public
 	 */
 	public function __construct ()
@@ -32,7 +32,18 @@ class Meteo extends \Overplace\Validate
 	 */
 	public function getRequiredForList ()
 	{
-		return array("comune");
+		return array("idWmc");
+	}
+
+	/**
+	 * Return properties required for get method.
+	 * @access  public
+	 *
+	 * @return  array
+	 */
+	public function getRequiredForGet ()
+	{
+		return array("idWmc", "idPromozione");
 	}
 
 }

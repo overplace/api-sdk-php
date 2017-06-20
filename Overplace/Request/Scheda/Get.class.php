@@ -1,31 +1,31 @@
 <?php
 
-namespace Overplace\Request\Wmc;
+namespace Overplace\Request\Scheda;
 
 /**
  * Class Get.
- * Request object for get single wmc.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Get
- * @namespace   Overplace\Request
+ * @namespace   Overplace\Request\Scheda
  * @package     Overplace
  * @see         \Overplace\Request
  *
- * Date:        20/04/2017
+ * Date:        19/06/2017
  */
 class Get extends \Overplace\Request
 {
 
 	/**
-	 * IdWmc
+	 * Id scheda.
 	 * @access  public
 	 * @var     int
 	 */
-	public $idWmc;
+	public $id;
 
 	/**
 	 * Get constructor.
 	 * @access  public
+	 * @see     \Overplace\Request::__construct()
 	 */
 	public function __construct ()
 	{
@@ -33,15 +33,15 @@ class Get extends \Overplace\Request
 	}
 
 	/**
-	 * IdWmc setter.
+	 * Id setter.
 	 * @access  public
-	 * @param   int     $idWmc   IdWmc
+	 * @param   int     $id
 	 *
-	 * @return  \Overplace\Request\Wmc\Get
+	 * @return  \Overplace\Request\Scheda\Get
 	 */
-	public function setIdWmc ($idWmc)
+	public function setId ($id)
 	{
-		$this->idWmc = $idWmc;
+		$this->id = $id;
 
 		return $this;
 	}

@@ -1,26 +1,26 @@
 <?php
 
-namespace Overplace\Request\Meteo;
+namespace Overplace\Request\Wmc\Ricette;
 
 /**
  * Class Lists.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Lists
- * @namespace   Overplace\Request\Meteo
+ * @namespace   Overplace\Request\Wmc\Ricette
  * @package     Overplace
  * @see         \Overplace\Request\Lists
  *
- * Date:        28/04/2017
+ * Date:        02/05/2017
  */
 class Lists extends \Overplace\Request\Lists
 {
 
 	/**
-	 * Comune
+	 * IdWmc
 	 * @access  public
-	 * @var     string
+	 * @var     int
 	 */
-	public $comune;
+	public $idWmc;
 
 	/**
 	 * Lists constructor.
@@ -33,15 +33,15 @@ class Lists extends \Overplace\Request\Lists
 	}
 
 	/**
-	 * Comune setter.
+	 * IdWmc setter.
 	 * @access  public
-	 * @param   string  $comune   Comune
+	 * @param   int     $idWmc   IdWmc
 	 *
-	 * @return  \Overplace\Request\Meteo\Lists
+	 * @return  \Overplace\Request\Wmc\Ricette\Lists
 	 */
-	public function setComune ($comune)
+	public function setIdWmc ($idWmc)
 	{
-		$this->comune = $comune;
+		$this->idWmc = $idWmc;
 
 		return $this;
 	}

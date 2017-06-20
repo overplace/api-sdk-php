@@ -111,7 +111,12 @@ class Service
 			return new \Overplace\Response(array(), array(), $body['message']);
 		}
 
-		$class = (isset($expectedClass) && is_string($expectedClass) && !empty($expectedClass)) ? $expectedClass : substr(static::class, (strrpos(static::class, "\\") + 1), strlen(static::class));
+		$class = (isset($expectedClass) && is_string($expectedClass) && !empty($expectedClass)) ? $expectedClass : str_replace("Overplace\\Service\\", "", static::class);
+
+		if (isset($class[0]) && $class[0] == '\\'){
+			$class = substr($class, 1);
+		}
+
 		if (!class_exists("\\Overplace\\Response\\{$class}")){
 			throw new \Overplace\Exception\Service("Invalid or missing {$class} class in response namespace!");
 		}

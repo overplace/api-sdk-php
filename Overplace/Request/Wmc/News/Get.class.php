@@ -1,17 +1,17 @@
 <?php
 
-namespace Overplace\Request\Wmc;
+namespace Overplace\Request\Wmc\News;
 
 /**
  * Class Get.
- * Request object for get single wmc.
+ * Request object for get single news.
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Get
- * @namespace   Overplace\Request
+ * @namespace   Overplace\Request\Wmc\News
  * @package     Overplace
  * @see         \Overplace\Request
  *
- * Date:        20/04/2017
+ * Date:        27/04/2017
  */
 class Get extends \Overplace\Request
 {
@@ -22,6 +22,13 @@ class Get extends \Overplace\Request
 	 * @var     int
 	 */
 	public $idWmc;
+
+	/**
+	 * Id news.
+	 * @access  public
+	 * @var     int
+	 */
+	public $idNews;
 
 	/**
 	 * Get constructor.
@@ -35,13 +42,27 @@ class Get extends \Overplace\Request
 	/**
 	 * IdWmc setter.
 	 * @access  public
-	 * @param   int     $idWmc   IdWmc
+	 * @param   int     $idWmc
 	 *
-	 * @return  \Overplace\Request\Wmc\Get
+	 * @return  \Overplace\Request\Wmc\News\Get
 	 */
 	public function setIdWmc ($idWmc)
 	{
 		$this->idWmc = $idWmc;
+
+		return $this;
+	}
+
+	/**
+	 * IdNews setter.
+	 * @access  public
+	 * @param   int     $idNews
+	 *
+	 * @return  \Overplace\Request\Wmc\News\Get
+	 */
+	public function setIdNews ($idNews)
+	{
+		$this->idNews = $idNews;
 
 		return $this;
 	}

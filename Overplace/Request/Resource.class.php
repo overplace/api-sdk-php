@@ -7,6 +7,7 @@ namespace Overplace\Request;
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Resource
  * @namespace   Overplace\Request
+ * @package     Overplace
  *
  * Date:        13/06/2017
  */
