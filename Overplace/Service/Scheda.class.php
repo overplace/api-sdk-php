@@ -31,6 +31,15 @@ class Scheda extends \Overplace\Service
 		);
 	}
 
+	/**
+	 * Return public info of one Scheda.
+	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * @access  public
+	 * @throws  \Overplace\Exception\Service
+	 * @param   \Overplace\Request\Scheda\Get   $get
+	 *
+	 * @return  \Overplace\Response\Scheda
+	 */
 	public function get (\Overplace\Request\Scheda\Get $get)
 	{
 		if (!$this->validator->validate("get", $get)){
@@ -42,6 +51,7 @@ class Scheda extends \Overplace\Service
 
 		return $this->request("GET", sprintf($this->endpoint['get'], $get->id), $params);
 	}
+
 }
 
 ?>
