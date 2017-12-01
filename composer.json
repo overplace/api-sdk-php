@@ -1,7 +1,7 @@
 {
-    "name": "Overplace Api Client Sdk for PHP",
+    "name": "overplace/api-sdk-php",
     "type": "library",
-    "description": "",
+    "description": "Overplace Api Client Sdk for PHP",
     "keywords": ["overplace", "api", "api client php", "sdk php", "overplace api client php", "overplace api sdk php"],
     "homepage": "https://github.com/overplace/api-sdk-php",
     "license": "",
