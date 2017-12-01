@@ -4,26 +4,34 @@ namespace Overplace;
 
 /**
  * Class Response.
+ *
+ * Classe principale che gestisce le risposte dal server.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Response
  * @namespace   Overplace
  * @package     Overplace
  * @uses        \ReflectionClass
- *
- * Date:        19/04/2017
  */
 class Response
 {
 
 	/**
-	 * Array with mapped relation between Response object.
+	 * Mappatura delle proprietà.
+	 *
+	 * Array contente una mappatura delle relazioni tra le proprietà
+	 * della classe con le classi Response.
+	 *
 	 * @access  protected
 	 * @var     array
 	 */
 	protected $_map;
 
 	/**
-	 * String message for response.
+	 * Response message.
+	 *
+	 * Messaggio di status ricevuto dal server.
+	 *
 	 * @access  protected
 	 * @see     \Overplace\Response::getMessage()
 	 * @var     string
@@ -32,10 +40,18 @@ class Response
 
 	/**
 	 * Response constructor.
+	 *
+	 * Costruttore della classe Response.
+	 *
 	 * @access  public
-	 * @param   array   $properties Array with property name => values to assign. Default is empty array. [Optional]
-	 * @param   array   $map        Array $property => $classname. Default is empty array. [Optional]
-	 * @param   string  $message    Response message. Used when no properties returns from request but only message string. [Optional]
+	 * @param   array   $properties  Array contenente le proprietà e il valore da assignare alla classe.
+	 *                               La struttura dell'array deve avere la forma 'property' => 'value'.
+	 *                               Di default è un array vuoto. [Optional]
+	 * @param   array   $map         Array contenente la mappatura delle proprietà della classe.
+	 *                               Di default è un array vuoto. [Optional]
+	 * @param   string  $message     Messaggio di status ricevuto dal server.
+	 *                               Il messaggio viene utilizzato solamente quando la risposta del server non
+	 *                               contiene proprietà della classe. [Optional]
 	 */
 	public function __construct (array $properties = array(), array $map = array(), $message = '')
 	{
@@ -47,7 +63,11 @@ class Response
 	}
 
 	/**
-	 * Return array with all properties, excluded _map and _message property.
+	 * Convert object to array.
+	 *
+	 * Converte la classe in array e lo ritorna. Esclude le proprietà _map e _message.
+	 * Anche le proprietà con un valore nullo vengono ritornate.
+	 *
 	 * @access  public
 	 *
 	 * @return  array
@@ -70,6 +90,9 @@ class Response
 
 	/**
 	 * Message getter.
+	 *
+	 * Ritorna il messaggio ricevuto dal server.
+	 *
 	 * @access  public
 	 *
 	 * @return  string
@@ -80,10 +103,15 @@ class Response
 	}
 
 	/**
-	 * Assign properties from array.
-	 * Return instance of object.
+	 * Assegna le proprietà della classe da un array.
+	 *
+	 * Assegna tutte le chiavi dell'array che corrispondono al nome di una proprietà.
+	 * Se il valore da assegnare è un array e la proprietà è presente nella mappatura della classe, converte il valore
+	 * nella classe associata e assegna le proprietà. Inoltre se il valore è un array enumerativo di altri array allora
+	 * crea una collection di classi.
+	 *
 	 * @access  protected
-	 * @param   array   $properties     Array with property => value
+	 * @param   array   $properties     Array con le proprietà e i valori da assegnare alla classe.
 	 */
 	protected function assign (array $properties)
 	{
@@ -110,9 +138,12 @@ class Response
 	}
 
 	/**
-	 * Convert string snake case in camel case.
+	 * snake_case to camelCase.
+	 *
+	 * Converte una stringa dal formato snake_case al formato camelCase.
+	 *
 	 * @access  private
-	 * @param   string  $string     String to convert.
+	 * @param   string  $string     Stringa da convertire.
 	 *
 	 * @return  string
 	 */

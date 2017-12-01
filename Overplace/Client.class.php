@@ -4,44 +4,63 @@ namespace Overplace;
 
 /**
  * Class Client.
+ *
+ * Contiene tutte le impostazioni principali che vengono utilizzate dai Service.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Client
  * @namespace   Overplace
  * @package     Overplace
- * @uses        \Overplace\App
- * @uses        \Overplace\Interfaces\Auth
- *
- * Date:        19/04/2017
+ * @see         \Overplace\App
+ * @see         \Overplace\Interfaces\Auth
  */
 class Client
 {
 
 	/**
-	 * User Agent name of client.
+	 * Client UserAgent.
+	 *
+	 * User Agent che verrà utilizzato per effettuare le chiamate tramite
+	 * i service.
+	 *
 	 * @var     string
 	 */
 	const USER_AGENT = "overplace-client-api-sdk-php";
 
 	/**
-	 * Sdk Client Version.
+	 * Client version.
+	 *
+	 * Versione del client utilizzato.
+	 *
 	 * @var     string
 	 */
 	const CLIENT_VERSION = "1.0.0";
 
 	/**
-	 * Default graph api version.
+	 * Default GraphAPI version.
+	 *
+	 * Versione delle GraphAPI che utilizzeranno i Service per effettuare
+	 * le richieste ad Overplace nel caso in cui non venisse impostata.
+	 *
 	 * @var     string
 	 */
 	const DEFAULT_GRAPH_API_VERSION = "v1";
 
 	/**
-	 * Api Base uri.
+	 * GraphAPI Base uri.
+	 *
+	 * URI di base per effettuare le chiamate alle GraphAPI di Overplace.
+	 *
 	 * @var     string
 	 */
 	const BASE_URI = "https://graph.overplace.com/";
 
 	/**
 	 * Client App.
+	 *
+	 * Instanza della classe App, contenente le informazioni per l'autenticazione
+	 * del client.
+	 *
 	 * @access  private
 	 * @see     \Overplace\Client::getApp()
 	 * @var     \Overplace\App
@@ -49,7 +68,12 @@ class Client
 	private $app;
 
 	/**
-	 * Graph api version.
+	 * GraphAPI version.
+	 *
+	 * Versione delle GraphAPI che utilizzeranno i Service per le richieste
+	 * ad Overplace. Se non viene impostata una versione, verrà automaticamente
+	 * utilizzata la versione impostata in DEFAULT_GRAPH_API_VERSION.
+	 *
 	 * @access  private
 	 * @see     \Overplace\Client::getGraphApiVersion()
 	 * @var     string
@@ -58,16 +82,25 @@ class Client
 
 	/**
 	 * Auth class.
+	 *
+	 * Instanza della classe contenente i metodi per l'autenticazione del client con le GraphAPI
+	 * Overplace.
+	 *
 	 * @access  private
+	 * @see     \Overplace\Interfaces\Auth
 	 * @var     \Overplace\Interfaces\Auth
 	 */
 	private $auth;
 
 	/**
 	 * Client constructor.
+	 *
+	 * Costruttore della classe Client.
+	 *
 	 * @access  public
+	 * @example /client_constructor.php
 	 * @throws  \Overplace\Exception\Sdk
-	 * @param   array   $config
+	 * @param   array   $config     Array con le impostazioni del Client.
 	 */
 	public function __construct (array $config)
 	{
@@ -87,7 +120,11 @@ class Client
 
 	/**
 	 * Return Client App.
+	 *
+	 * Ritorna l'instanza della classe App.
+	 *
 	 * @access  public
+	 * @see     \Overplace\App
 	 *
 	 * @return  \Overplace\App
 	 */
@@ -98,6 +135,9 @@ class Client
 
 	/**
 	 * Return graph api version.
+	 *
+	 * Ritorna la versione delle GraphAPI impostata.
+	 *
 	 * @access  public
 	 *
 	 * @return  string
@@ -109,6 +149,10 @@ class Client
 
 	/**
 	 * Return Base uri for request.
+	 *
+	 * Ritorna l'uri di base con la versione impostata
+	 * per chiamare le GraphAPI Overplace
+	 *
 	 * @access  public
 	 *
 	 * @return  string
@@ -120,6 +164,10 @@ class Client
 
 	/**
 	 * Return Auth class.
+	 *
+	 * Ritorna l'istanza della classe Auth per effettuare l'autenticazione alle GraphAPI
+	 * Overplace.
+	 *
 	 * @access  public
 	 *
 	 * @return  \Overplace\Interfaces\Auth

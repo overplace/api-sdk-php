@@ -4,19 +4,24 @@ namespace Overplace\Auth;
 
 /**
  * Class Hmac.
+ *
+ * Classe incaricata di generare il token di autenticazione tramite il metodo
+ * HMAC.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Hmac
  * @namespace   Overplace\Auth
  * @package     Overplace
  * @see         \Overplace\Interfaces\Auth
- *
- * Date:        19/04/2017
  */
 class Hmac implements \Overplace\Interfaces\Auth
 {
 
 	/**
 	 * App Client.
+	 *
+	 * Instanza della classe App con le credenziali clientId e
+	 * clientSecret.
 	 * @access  protected
 	 * @var     \Overplace\App
 	 */

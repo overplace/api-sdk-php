@@ -4,14 +4,15 @@ namespace Overplace\Service;
 
 /**
  * Class Scheda.
+ *
+ * Servizio per recupere le informazioni pubbliche delle schede.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Scheda
  * @namespace   Overplace\Service
  * @package     Overplace
  * @see         \Overplace\Service
  * @uses        \Overplace\Validate\Scheda
- *
- * Date:        19/06/2017
  */
 class Scheda extends \Overplace\Service
 {

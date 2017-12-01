@@ -3,10 +3,14 @@
     "type": "library",
     "description": "",
     "keywords": ["overplace", "api", "api client php", "sdk php", "overplace api client php", "overplace api sdk php"],
-    "homepage": "",
+    "homepage": "https://github.com/overplace/api-sdk-php",
     "license": "",
     "authors": [
-        "Andrea Bellucci <andrea.bellucci@overplace.it>"
+        {
+            "name": "Andrea Bellucci",
+            "email": "andrea.bellucci@overplace.it",
+            "role": "Developer"
+        }
     ],
     "autoload": {
         "files": [

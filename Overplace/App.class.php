@@ -4,18 +4,23 @@ namespace Overplace;
 
 /**
  * Class App.
+ *
+ * Classe contenente le credenziali ed impostazioni dell'app creata dall'utente in http://developers.overplace.com
+ *
+ * Date: 19/04/2017
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        App
  * @namespace   Overplace
  * @package     Overplace
- *
- * Date:        19/04/2017
  */
 class App
 {
 
 	/**
 	 * App client id.
+	 *
+	 * Chiave pubblica generata da http://developers.overplace.com
+	 *
 	 * @access  private
 	 * @see     \Overplace\App::getClientId()
 	 * @var     string
@@ -24,6 +29,9 @@ class App
 
 	/**
 	 * App client secret.
+	 *
+	 * Chiave privata generata da http://developers.overplace.com
+	 *
 	 * @access  private
 	 * @see     \Overplace\App::getClientSecret()
 	 * @var     string
@@ -32,6 +40,9 @@ class App
 
 	/**
 	 * App client redirect uri.
+	 *
+	 * Lista degli url validi dove poter effettuare il redirect da parte di Overplace.
+	 *
 	 * @access  private
 	 * @see     \Overplace\App::getRedirectUri()
 	 * @var     string
@@ -40,9 +51,12 @@ class App
 
 	/**
 	 * App constructor.
+	 *
+	 * Inizializza la classe App con le impostazioni passate.
+	 *
 	 * @access  public
 	 * @throws  \Overplace\Exception\Sdk
-	 * @param   array   $app
+	 * @param   array   $app    Array contenente le informazioni dell'app.
 	 */
 	public function __construct (array $app)
 	{
@@ -57,6 +71,9 @@ class App
 
 	/**
 	 * Return App Client Id.
+	 *
+	 * Ritorna la chiave pubblica impostata.
+	 *
 	 * @access  public
 	 *
 	 * @return  string
@@ -68,6 +85,9 @@ class App
 
 	/**
 	 * Return App Client Secret.
+	 *
+	 * Ritorna la chiave privata impostata.
+	 *
 	 * @access  public
 	 *
 	 * @return  string
@@ -79,6 +99,9 @@ class App
 
 	/**
 	 * Return App Client Redirect Uri.
+	 *
+	 * Ritorna la lista degli url impostati.
+	 *
 	 * @access  public
 	 *
 	 * @return  string

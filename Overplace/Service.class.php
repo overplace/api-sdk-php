@@ -4,20 +4,24 @@ namespace Overplace;
 
 /**
  * Class Service.
+ *
+ * Classe principale per inviare le richieste al server.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Service
  * @namespace   Overplace
  * @package     Overplace
- * @uses        \Overplace\Client
- * @uses        \GuzzleHttp\Client
- *
- * Date:        19/04/2017
+ * @see         \Overplace\Client
+ * @see         \GuzzleHttp\Client
  */
 class Service
 {
 
 	/**
 	 * Client.
+	 *
+	 * Instanza della classe Client.
+	 *
 	 * @access  protected
 	 * @var     \Overplace\Client
 	 */
@@ -25,6 +29,9 @@ class Service
 
 	/**
 	 * Guzzle Client.
+	 *
+	 * Client Guzzle per effettuare le chiamate al server.
+	 *
 	 * @access  protected
 	 * @var     \GuzzleHttp\Client
 	 */
@@ -32,6 +39,9 @@ class Service
 
 	/**
 	 * Validate request.
+	 *
+	 * Instanza della classe Validate per il service instanziato.
+	 *
 	 * @access  protected
 	 * @var     \Overplace\Validate
 	 */
@@ -39,15 +49,22 @@ class Service
 
 	/**
 	 * Array endpoint of service.
+	 *
+	 * Lista degli endpoint disponibili per il service.
+	 *
 	 * @access  protected
 	 * @var     array
 	 */
 	protected $endpoint;
 
 	/**
-	 * Request constructor.
+	 * Service constructor.
+	 *
+	 * Costruttore della classe Service.
+	 * Inizializza il client Guzzle per effettuare le chiamate.
+	 *
 	 * @access  public
-	 * @param   \Overplace\Client   $client     Client
+	 * @param   \Overplace\Client   $client     Instanza della classe Client.
 	 */
 	public function __construct (\Overplace\Client $client)
 	{
@@ -66,10 +83,14 @@ class Service
 	}
 
 	/**
-	 * Execute request to graph API Overplace.
-	 * Throw a Service Exception if an error occurred.
-	 * Returns a Collection object if is a list or Response object of service that
-	 * called the request.
+	 * Esegue una request alle GraphAPI Overplace.
+	 *
+	 * Effettua una chiamata alle GraphAPI Overplace con i parametri specificati.
+	 * Lancia un Service Exception se si verifica un errore nella chiamata o il server
+	 * risponde con un codice di errore http.
+	 * In caso di successo ritorna un instanza della classe Collection se la risposta dal server
+	 * contiene una lista di oggetti, altrimenti ritorna un instanza della classe Response incaricata.
+	 *
 	 * @access  protected
 	 * @throws  \Overplace\Exception\Service
 	 * @param   string      $method         Http Method string

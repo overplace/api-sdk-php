@@ -4,23 +4,30 @@ namespace Overplace\Service;
 
 /**
  * Class Wmc.
- * Service object for wmc.
+ *
+ * Service incaricato per la gestione dell'oggetto Wmc.
+ * E' possibile richiedere la lista dei Web Media Center disponibili e/o
+ * le informazioni pubbliche di un singolo Web Media Center.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Wmc
  * @namespace   Overplace\Service
  * @package     Overplace
  * @see         \Overplace\Service
- * @uses        \Overplace\Validate\Wmc
- *
- * Date:        19/04/2017
+ * @see         \Overplace\Validate\Wmc
  */
 class Wmc extends \Overplace\Service
 {
 
 	/**
 	 * Wmc constructor.
+	 *
+	 * Costruttore del service Wmc.
+	 * Service per effettuare le chiamate per l'oggetto Wmc.
+	 *
 	 * @access  public
-	 * @param   \Overplace\Client   $client     Client
+	 * @example /phpdoc/wmc/constructor.php
+	 * @param   \Overplace\Client   $client     Instanza della classe Client.
 	 */
 	public function __construct (\Overplace\Client $client)
 	{
@@ -33,11 +40,17 @@ class Wmc extends \Overplace\Service
 	}
 
 	/**
-	 * Returns a collection of wmc.
-	 * Throw \Overplace\Exception\Service if an error occurred.
+	 * Recupera la lista di Web Media Center.
+	 *
+	 * Effettua una chiamata alle GraphAPI Overplace per recuperare la lista
+	 * dei Web Media Center disponibili per le credenziali impostate nel Client.
+	 * Lancia un Service Exception se si verifica un errore durante la chiamata.
+	 * In caso di successo ritorna una Collection di Response\Wmc.
+	 *
 	 * @access  public
+	 * @example /phpdoc/wmc/getList.php
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Wmc\Lists    $lists
+	 * @param   \Overplace\Request\Wmc\Lists    $lists  Wmc\Lists request class. Di default è null. [Optional]
 	 *
 	 * @return  \Overplace\Collection
 	 */
@@ -47,11 +60,17 @@ class Wmc extends \Overplace\Service
 	}
 
 	/**
-	 * Retrieve info of one wmc.
-	 * Throw a Service Exception if an error occurred.
+	 * Recupera le informazioni di un singolo Web Media Center.
+	 *
+	 * Effettua una chiamata alle GraphAPI Overplace per recuperare le informazioni
+	 * di un singolo Web Media Center. Lancia un Service Exception se si verifica un errore durante la chiamata.
+	 * In caso di successo ritorna l'instanza della classe Response\Wmc.
+	 *
 	 * @access  public
+	 * @example /phpdoc/wmc/get.php
 	 * @throws  \Overplace\Exception\Service
-	 * @param   \Overplace\Request\Wmc\Get   $get    Request object for wmc get method.
+	 * @param   \Overplace\Request\Wmc\Get  $get    Request Wmc\Get object per il metodo Get.
+	 *                                              La proprietà obbligatoria è il campo idWmc.
 	 *
 	 * @return  \Overplace\Response\Wmc
 	 */
@@ -61,7 +80,7 @@ class Wmc extends \Overplace\Service
 			throw new \Overplace\Exception\Service("Required fields: " . implode(",", $this->validator->getRequiredForGet()));
 		}
 
-		return $this->request("GET", sprintf($this->endpoint['get'], $get->idScheda), array());
+		return $this->request("GET", sprintf($this->endpoint['get'], $get->idWmc), array());
 	}
 
 }

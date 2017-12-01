@@ -4,18 +4,22 @@ namespace Overplace;
 
 /**
  * Class Validate.
+ *
+ * Classe principale per la validazione delle request.
+ *
  * @author      Andrea Bellucci <andrea.bellucci@overplace.it>
  * @name        Validate
  * @namespace   Overplace
  * @package     Overplace
- *
- * Date:        19/04/2017
  */
 class Validate
 {
 
 	/**
 	 * Validate constructor.
+	 *
+	 * Costruttore della classe Validate.
+	 *
 	 * @access  public
 	 */
 	public function __construct ()
@@ -25,6 +29,11 @@ class Validate
 
 	/**
 	 * Validate request object for specific request.
+	 *
+	 * Effettua la validazione di un oggetto Request in base al metodo chiamato.
+	 * Lancia un Service Exception se il metodo richiesto non esiste nella classe Validate.
+	 * Ritorna true se la classe Request contiene tutti i parametri obbligatori, altrimenti false.
+	 *
 	 * @final
 	 * @access  public
 	 * @throws  \Overplace\Exception\Service
